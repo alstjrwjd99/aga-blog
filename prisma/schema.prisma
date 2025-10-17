@@ -6,9 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
-  // 로컬 개발: SQLite, 프로덕션: PostgreSQL (Neon)
+  // 프로덕션: PostgreSQL (Neon), 로컬: 환경변수로 SQLite 오버라이드
 }
 
 // 사이트 방문 통계 모델
