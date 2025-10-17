@@ -11,6 +11,14 @@ interface SEOProps {
   modifiedTime?: string
   author?: string
   section?: string
+  openGraph?: {
+    images?: Array<{
+      url: string
+      width: number
+      height: number
+      alt: string
+    }>
+  }
 }
 
 export function generateSEOMetadata({
@@ -19,6 +27,7 @@ export function generateSEOMetadata({
   keywords = ['보이스피싱', '피싱', '사기', '피해사례', '예방', '사이버보안'],
   image,
   url,
+  openGraph,
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -44,7 +53,7 @@ export function generateSEOMetadata({
       locale: 'ko_KR',
       siteName: '피싱 방지 센터',
       url: url || baseUrl,
-      images: [
+      images: openGraph?.images || [
         {
           url: image || defaultImage,
           width: 1200,
@@ -124,6 +133,14 @@ export const seoMetadata = {
     createdAt: string
     updatedAt: string
     id: string
+    openGraph?: {
+      images?: Array<{
+        url: string
+        width: number
+        height: number
+        alt: string
+      }>
+    }
   }) => generateSEOMetadata({
     title: `${caseData.title} - 피싱 방지 센터`,
     description: caseData.content.substring(0, 160) + '...',
@@ -133,6 +150,7 @@ export const seoMetadata = {
     publishedTime: caseData.createdAt,
     modifiedTime: caseData.updatedAt,
     section: caseData.category,
+    openGraph: caseData.openGraph,
   }),
 
   // 사례 등록

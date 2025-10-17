@@ -64,10 +64,10 @@ export const metadata: Metadata = {
     siteName: "피싱 방지 센터",
     images: [
       {
-        url: "https://aga-blog.vercel.app/og-image.png",
+        url: "https://aga-blog.vercel.app/og",
         width: 1200,
         height: 630,
-        alt: "피싱 방지 센터",
+        alt: "피싱 방지 센터 - 보이스피싱 사례 공유 및 예방 가이드",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "피싱 방지 센터 - 보이스피싱 사례 공유",
     description: "실제 피해 사례를 공유하고 예방 정보를 제공하여 더 안전한 디지털 환경을 만들어갑니다.",
-    images: ["https://aga-blog.vercel.app/og-image.png"],
+    images: ["https://aga-blog.vercel.app/og"],
     creator: "@phishing_prevention",
   },
   category: "technology",

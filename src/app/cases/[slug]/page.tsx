@@ -84,16 +84,26 @@ export async function generateMetadata({ params }: CaseDetailPageProps): Promise
       })
     }
 
-    return seoMetadata.caseDetail({
-      id: caseData.id,
-      title: caseData.title,
-      content: caseData.content,
-      category: caseData.category,
-      amount: caseData.amount || undefined,
-      region: caseData.region || undefined,
-      createdAt: caseData.createdAt.toISOString(),
-      updatedAt: caseData.updatedAt.toISOString()
-    })
+            return seoMetadata.caseDetail({
+              id: caseData.id,
+              title: caseData.title,
+              content: caseData.content,
+              category: caseData.category,
+              amount: caseData.amount || undefined,
+              region: caseData.region || undefined,
+              createdAt: caseData.createdAt.toISOString(),
+              updatedAt: caseData.updatedAt.toISOString(),
+              openGraph: {
+                images: [
+                  {
+                    url: `https://aga-blog.vercel.app/og/case/${slug}`,
+                    width: 1200,
+                    height: 630,
+                    alt: `${caseData.title} - 피싱 방지 센터`,
+                  },
+                ],
+              },
+            })
   } catch {
     return seoMetadata.caseDetail({
       id: slug,
