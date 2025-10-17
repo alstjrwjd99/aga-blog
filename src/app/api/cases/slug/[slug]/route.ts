@@ -8,10 +8,15 @@ export async function GET(
 ) {
   try {
     const { slug } = await params
+    
+    // URL 디코딩된 슬러그 사용
+    const decodedSlug = decodeURIComponent(slug)
+    console.log('Original slug:', slug)
+    console.log('Decoded slug:', decodedSlug)
 
     const caseData = await prisma.case.findUnique({
       where: {
-        slug: slug
+        slug: decodedSlug
       },
       include: {
         _count: {
@@ -24,6 +29,7 @@ export async function GET(
     })
 
     if (!caseData) {
+      console.log('Case not found for slug:', decodedSlug)
       return NextResponse.json({ error: 'Case not found' }, { status: 404 })
     }
 
