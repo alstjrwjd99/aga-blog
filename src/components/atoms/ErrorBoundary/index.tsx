@@ -1,5 +1,4 @@
 'use client'
-import styles from './styles.module.scss'
 
 import Button from '@/components/atoms/Button'
 import Card from '@/components/atoms/Card'

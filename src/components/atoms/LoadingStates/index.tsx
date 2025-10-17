@@ -1,5 +1,4 @@
 'use client'
-import styles from './styles.module.scss'
 
 import React from 'react'
 import { Loader2, RefreshCw } from 'lucide-react'

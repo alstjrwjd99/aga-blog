@@ -69,44 +69,43 @@ export default async function CaseDetailPage({ params }: CaseDetailPageProps) {
 
 // 사례 상세 내용 컴포넌트
 async function CaseDetailContent({ slug }: { slug: string }) {
-  try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
-      cache: 'no-store'
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
+    cache: 'no-store'
+  })
+
+  if (!response.ok) {
+    notFound()
+  }
+
+  const caseData = await response.json()
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
     })
+  }
 
-    if (!response.ok) {
-      notFound()
+  const formatAmount = (amount: number) => {
+    return new Intl.NumberFormat('ko-KR').format(amount) + '원'
+  }
+
+  const getCategoryVariant = (category: string) => {
+    const variants: { [key: string]: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' } = {
+      '보이스피싱': 'danger',
+      '문자': 'warning',
+      '링크': 'primary',
+      'SNS': 'info',
+      '리뷰알바': 'success',
+      '기타': 'secondary'
     }
+    return variants[category] || 'secondary'
+  }
 
-    const caseData = await response.json()
-
-    const formatDate = (dateString: string) => {
-      return new Date(dateString).toLocaleDateString('ko-KR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      })
-    }
-
-    const formatAmount = (amount: number) => {
-      return new Intl.NumberFormat('ko-KR').format(amount) + '원'
-    }
-
-    const getCategoryVariant = (category: string) => {
-      const variants: { [key: string]: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' } = {
-        '보이스피싱': 'danger',
-        '문자': 'warning',
-        '링크': 'primary',
-        'SNS': 'info',
-        '리뷰알바': 'success',
-        '기타': 'secondary'
-      }
-      return variants[category] || 'secondary'
-    }
-
-    return (
+  return (
       <>
         <ArticleStructuredData caseData={caseData} />
         <BreadcrumbStructuredData
@@ -247,9 +246,6 @@ async function CaseDetailContent({ slug }: { slug: string }) {
         </div>
       </>
     )
-  } catch {
-    notFound()
-  }
 }
 
 // 로딩 스켈레톤

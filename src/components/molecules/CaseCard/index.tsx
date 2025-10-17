@@ -19,7 +19,6 @@ interface CaseCardProps {
 }
 
 export default function CaseCard({
-  id,
   slug,
   title,
   category,

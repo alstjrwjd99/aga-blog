@@ -1,5 +1,4 @@
 'use client'
-import styles from './styles.module.scss'
 
 import Image from 'next/image'
 import { useState } from 'react'

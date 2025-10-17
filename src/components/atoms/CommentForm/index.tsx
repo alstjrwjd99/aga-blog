@@ -22,8 +22,11 @@ export default function CommentForm({ caseId }: CommentFormProps) {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('aga_comment_nickname')
       if (saved) {
-        setNickname(saved)
-        setIsNicknameLocked(true)
+        // setTimeout을 사용하여 렌더링 사이클 밖에서 상태 업데이트
+        setTimeout(() => {
+          setNickname(saved)
+          setIsNicknameLocked(true)
+        }, 0)
       }
     }
   }, [])

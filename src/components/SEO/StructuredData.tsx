@@ -1,5 +1,4 @@
 'use client'
-import styles from './styles.module.scss'
 
 import { useEffect } from 'react'
 

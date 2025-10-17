@@ -36,7 +36,10 @@ export default function CategorySelect({
     const stored = localStorage.getItem('recent-categories')
     if (stored) {
       try {
-        setRecentCategories(JSON.parse(stored))
+        // setTimeout을 사용하여 렌더링 사이클 밖에서 상태 업데이트
+        setTimeout(() => {
+          setRecentCategories(JSON.parse(stored))
+        }, 0)
       } catch (error) {
         console.error('Failed to parse recent categories:', error)
       }

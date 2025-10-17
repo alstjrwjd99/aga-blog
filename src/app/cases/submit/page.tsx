@@ -16,7 +16,7 @@ import styles from './page.module.scss'
 export default function SubmitCasePage() {
   const router = useRouter()
   const createCaseMutation = useCreateCase()
-  const { data: categories = [], isLoading: categoriesLoading } = useCategories()
+  const { data: categories = [] } = useCategories()
   const [isMounted, setIsMounted] = useState(false)
   const [formData, setFormData] = useState({
     title: '',

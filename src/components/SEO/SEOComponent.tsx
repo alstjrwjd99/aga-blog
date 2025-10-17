@@ -49,7 +49,6 @@ const SEOComponent = ({
   category,
   searchQuery
 }: SEOComponentProps) => {
-  const router = useRouter()
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/'
 
@@ -117,7 +116,7 @@ const SEOComponent = ({
 
     // 사례 데이터가 있는 경우 추가
     if (cases.length > 0) {
-      (baseStructuredData[0]['@graph'] as any[]).push({
+      (baseStructuredData[0]['@graph'] as Array<Record<string, unknown>>).push({
         '@type': 'ItemList',
         name: category ? `${category} 피싱 사례` : '피싱 사례',
         description: category ? `${category} 관련 피싱 사례 목록` : '피싱 사례 목록',
@@ -155,7 +154,7 @@ const SEOComponent = ({
 
     // 검색 결과가 있는 경우 추가
     if (searchQuery) {
-      (baseStructuredData[0]['@graph'] as any[]).push({
+      (baseStructuredData[0]['@graph'] as Array<Record<string, unknown>>).push({
         '@type': 'SearchResultsPage',
         name: `"${searchQuery}" 검색 결과`,
         description: `"${searchQuery}"에 대한 피싱 사례 검색 결과`,

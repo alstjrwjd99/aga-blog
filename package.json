@@ -11,7 +11,9 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate deploy",
     "db:seed": "prisma db seed",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "postbuild": "next-sitemap",
+    "predeploy": "yarn tsc --noEmit && yarn lint && yarn build"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -19,11 +21,13 @@
     "lucide-react": "^0.468.0",
     "next": "15.5.5",
     "next-seo": "^6.6.0",
+    "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.83.0"
   },
   "devDependencies": {
+    "@types/json-schema": "^7.0.15",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

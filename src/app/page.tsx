@@ -10,17 +10,13 @@ import { useLogSearch } from '@/hooks/useLogSearch'
 import { useLogVisit } from '@/hooks/useLogVisit'
 import { useCases, useStatistics } from '@/hooks/useQueries'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import styles from './page.module.scss'
 
 // 홈페이지 컴포넌트
 export default function Home() {
   const router = useRouter()
-  const [selectedCategory, setSelectedCategory] = useState('')
-  const [selectedPeriod, setSelectedPeriod] = useState('')
-  const [selectedSort, setSelectedSort] = useState('latest')
-  const [searchQuery, setSearchQuery] = useState('')
-  const { data: statistics, isLoading: statisticsLoading, error: statisticsError } = useStatistics()
+  const { data: statistics } = useStatistics()
   const { data: casesData, isLoading: casesLoading, error: casesError } = useCases({ sortBy: 'createdAt', sortOrder: 'desc', limit: 3 })
 
   // 방문 로깅
@@ -29,29 +25,6 @@ export default function Home() {
   // 검색 로깅
   const { logSearch } = useLogSearch()
 
-  // 필터 옵션들
-  const categoryOptions = [
-    { value: '', label: '전체' },
-    { value: '보이스피싱', label: '보이스피싱' },
-    { value: 'SNS', label: 'SNS' },
-    { value: '리뷰알바', label: '리뷰알바' },
-    { value: '링크', label: '링크' },
-    { value: '기타', label: '기타' }
-  ]
-
-  const periodOptions = [
-    { value: '', label: '전체' },
-    { value: 'today', label: '오늘' },
-    { value: 'week', label: '최근 1주' },
-    { value: 'month', label: '최근 1개월' },
-    { value: 'year', label: '최근 1년' }
-  ]
-
-  const sortOptions = [
-    { value: 'latest', label: '최신순' },
-    { value: 'popular', label: '인기순' },
-    { value: 'amount', label: '피해금액순' }
-  ]
 
   // 텍스트 드래그 방지
   useEffect(() => {
@@ -68,24 +41,28 @@ export default function Home() {
     document.addEventListener('dragstart', preventDrag)
 
     // CSS로도 방지
-    document.body.style.userSelect = 'none'
-    ;(document.body.style as any).webkitUserSelect = 'none'
-    ;(document.body.style as any).mozUserSelect = 'none'
-    ;(document.body.style as any).msUserSelect = 'none'
+    const bodyStyle = document.body.style as CSSStyleDeclaration & {
+      webkitUserSelect?: string
+      mozUserSelect?: string
+      msUserSelect?: string
+    }
+    bodyStyle.userSelect = 'none'
+    bodyStyle.webkitUserSelect = 'none'
+    bodyStyle.mozUserSelect = 'none'
+    bodyStyle.msUserSelect = 'none'
 
     return () => {
       document.removeEventListener('selectstart', preventSelect)
       document.removeEventListener('dragstart', preventDrag)
-      document.body.style.userSelect = ''
-      ;(document.body.style as any).webkitUserSelect = ''
-      ;(document.body.style as any).mozUserSelect = ''
-      ;(document.body.style as any).msUserSelect = ''
+      bodyStyle.userSelect = ''
+      bodyStyle.webkitUserSelect = ''
+      bodyStyle.mozUserSelect = ''
+      bodyStyle.msUserSelect = ''
     }
   }, [])
 
   // 검색 핸들러
   const handleSearch = (query: string) => {
-    setSearchQuery(query)
     if (query.trim()) {
       // 검색 로깅
       logSearch(query)
@@ -93,18 +70,6 @@ export default function Home() {
     }
   }
 
-  // 카테고리별 아이콘 매핑
-  const getCategoryIcon = (category: string) => {
-    const iconMap: { [key: string]: string } = {
-      'SNS': 'social-media',
-      '리뷰알바': 'review',
-      '링크': 'link',
-      '문자': 'message',
-      '보이스피싱': 'phone',
-      '기타': 'more'
-    }
-    return iconMap[category] || 'shield'
-  }
 
   return (
     <>
