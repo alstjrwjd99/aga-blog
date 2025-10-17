@@ -1,9 +1,16 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { StatisticsCache } from '@/lib/kv'
 
 // GET /api/statistics - 사이트 통계 정보
 export async function GET() {
   try {
+    // 캐시에서 통계 데이터 조회 시도
+    const cachedStats = await StatisticsCache.getStatistics()
+    if (cachedStats) {
+      return NextResponse.json(cachedStats)
+    }
+
     // 전체 사례 수
     const totalCases = await prisma.case.count()
     
@@ -87,6 +94,9 @@ export async function GET() {
       recentCases,
       casesByRegion
     }
+
+    // 캐시에 통계 데이터 저장
+    await StatisticsCache.setStatistics(result)
 
     return NextResponse.json(result)
   } catch (error) {

@@ -4,6 +4,8 @@ import Footer from "@/components/organisms/Footer";
 import Header from "@/components/organisms/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.scss";
 
 const inter = Inter({
@@ -97,6 +99,8 @@ export default function RootLayout({
             <VisitTracker />
           </div>
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

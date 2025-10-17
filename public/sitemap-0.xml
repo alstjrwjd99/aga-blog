@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://aga-blog.vercel.app/about</loc><lastmod>2025-10-17T13:12:53.437Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases</loc><lastmod>2025-10-17T13:12:53.437Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://aga-blog.vercel.app/search</loc><lastmod>2025-10-17T13:12:53.438Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://aga-blog.vercel.app</loc><lastmod>2025-10-17T13:12:53.438Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/submit</loc><lastmod>2025-10-17T13:12:53.438Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://aga-blog.vercel.app/guide</loc><lastmod>2025-10-17T13:12:53.438Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://aga-blog.vercel.app/not-found</loc><lastmod>2025-10-17T13:12:53.438Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/구글-플레이-스토어-결제-승인</loc><lastmod>2025-10-17T12:31:44.867Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/배달의민족-주문-취소-문자</loc><lastmod>2025-10-17T12:31:44.863Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/인스타그램-계정-해킹-위험-알림</loc><lastmod>2025-10-17T12:31:44.860Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/삼성페이-결제-오류-메시지</loc><lastmod>2025-10-17T12:31:44.857Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/유튜브-구독자-증가-서비스-사기</loc><lastmod>2025-10-17T12:31:44.849Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/카카오뱅크-계좌-동결-위험-알림</loc><lastmod>2025-10-17T12:31:44.843Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/쿠팡-할인-이벤트로-개인정보-수집</loc><lastmod>2025-10-17T12:31:44.840Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/페이스북-메신저로-가짜-친구-요청</loc><lastmod>2025-10-17T12:31:44.837Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/가짜-네이버페이-결제-승인-문자</loc><lastmod>2025-10-17T12:31:44.834Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/택배-배송-문제로-개인정보-확인-요구</loc><lastmod>2025-10-17T12:31:44.831Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/리뷰-작성-알바로-개인정보-수집-시도</loc><lastmod>2025-10-17T12:31:44.828Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/인스타그램-dm으로-가짜-이벤트-참여-유도</loc><lastmod>2025-10-17T12:31:44.824Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/가짜-쇼핑몰에서-결제-정보-탈취-시도</loc><lastmod>2025-10-17T12:31:44.821Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/카카오페이-해킹-위험-메시지로-개인정보-요구</loc><lastmod>2025-10-17T12:31:44.816Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://aga-blog.vercel.app/cases/은행-직원인-척하며-계좌-정보를-요구하는-전화</loc><lastmod>2025-10-17T12:31:44.809Z</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://aga-blog.vercel.app/cases/submit</loc><lastmod>2025-10-17T13:24:53.113Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://aga-blog.vercel.app</loc><lastmod>2025-10-17T13:24:53.114Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://aga-blog.vercel.app/not-found</loc><lastmod>2025-10-17T13:24:53.114Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://aga-blog.vercel.app/search</loc><lastmod>2025-10-17T13:24:53.114Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://aga-blog.vercel.app/about</loc><lastmod>2025-10-17T13:24:53.114Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://aga-blog.vercel.app/guide</loc><lastmod>2025-10-17T13:24:53.114Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://aga-blog.vercel.app/cases</loc><lastmod>2025-10-17T13:24:53.114Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

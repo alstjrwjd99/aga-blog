@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import { CaseCache } from '@/lib/kv'
 import { NextRequest, NextResponse } from 'next/server'
 
 // GET /api/cases - 사례 목록 조회 (검색, 필터링, 페이지네이션 지원)
@@ -13,6 +14,15 @@ export async function GET(request: NextRequest) {
     const sortOrder = searchParams.get('sortOrder') || 'desc'
 
     const skip = (page - 1) * limit
+
+    // 캐시 키 생성 (검색/필터 조건 포함)
+    const cacheKey = `cases:${page}:${limit}:${category || 'all'}:${search || 'none'}:${sortBy}:${sortOrder}`
+    
+    // 캐시에서 데이터 조회 시도
+    const cachedData = await CaseCache.getRecentCases()
+    if (cachedData && !search && !category && page === 1 && sortBy === 'createdAt' && sortOrder === 'desc') {
+      return NextResponse.json(cachedData)
+    }
 
     // 검색 및 필터링 조건 구성
     const where: {
@@ -73,6 +83,11 @@ export async function GET(request: NextRequest) {
         total,
         totalPages: Math.ceil(total / limit)
       }
+    }
+
+    // 캐시에 데이터 저장 (기본 목록만)
+    if (!search && !category && page === 1 && sortBy === 'createdAt' && sortOrder === 'desc') {
+      await CaseCache.setRecentCases(result)
     }
 
     return NextResponse.json(result)

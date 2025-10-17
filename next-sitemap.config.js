@@ -18,6 +18,12 @@ module.exports = {
   additionalPaths: async (config) => {
     // 동적 사례 페이지들을 추가
     try {
+      // 환경 변수 확인
+      if (!process.env.DATABASE_URL || process.env.DATABASE_URL.startsWith('file:')) {
+        console.log('로컬 SQLite 환경에서는 사례 페이지를 사이트맵에 추가하지 않습니다.')
+        return []
+      }
+
       const { PrismaClient } = await import('@prisma/client')
       const prisma = new PrismaClient()
       
