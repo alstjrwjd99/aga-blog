@@ -16,7 +16,7 @@
     "db:migrate": "prisma migrate deploy",
     "db:seed": "prisma db seed",
     "postinstall": "prisma generate",
-    "postbuild": "echo 'Sitemap generation skipped for now'",
+    "postbuild": "next-sitemap",
     "predeploy": "yarn tsc --noEmit && yarn lint && yarn build"
   },
   "dependencies": {
