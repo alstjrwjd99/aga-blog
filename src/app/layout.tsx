@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // 구글 서치 콘솔에서 받은 코드
+    google: "googleb30cc01a3c83afd5",
   },
   alternates: {
     canonical: "https://aga-blog.vercel.app",

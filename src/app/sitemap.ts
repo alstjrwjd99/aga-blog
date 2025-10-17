@@ -1,5 +1,5 @@
-import { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
+import { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
@@ -68,7 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return allPages
   } catch (error) {
     console.error('사이트맵 생성 오류:', error)
-    
+
     // 오류 발생 시 기본 페이지만 반환
     return [
       {
