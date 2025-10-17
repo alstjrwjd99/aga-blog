@@ -1,4 +1,4 @@
-@import '../../../styles/_aga-theme';
+@use '../../../styles/_aga-theme' as aga;
 
 // CommentForm Styles
 // =================
@@ -77,8 +77,8 @@
   outline: none;
 
   &:focus {
-    border-color: $aga-blue;
-    box-shadow: 0 0 0 3px rgba($aga-blue, 0.1);
+    border-color: aga.$aga-blue;
+    box-shadow: 0 0 0 3px rgba(aga.$aga-blue, 0.1);
   }
 
   &:hover {
