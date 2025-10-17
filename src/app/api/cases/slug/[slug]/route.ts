@@ -9,8 +9,19 @@ export async function GET(
   try {
     const { slug } = await params
     
-    // URL 디코딩된 슬러그 사용
-    const decodedSlug = decodeURIComponent(slug)
+    // 다중 디코딩 처리 (중첩 인코딩된 경우 대비)
+    let decodedSlug = slug
+    try {
+      decodedSlug = decodeURIComponent(slug)
+      // 한 번 더 디코딩 시도 (중첩 인코딩된 경우)
+      if (decodedSlug !== slug) {
+        decodedSlug = decodeURIComponent(decodedSlug)
+      }
+    } catch (decodeError) {
+      console.log('API - Decode error, using original slug:', slug)
+      decodedSlug = slug
+    }
+    
     console.log('API - Original slug:', slug)
     console.log('API - Decoded slug:', decodedSlug)
 
