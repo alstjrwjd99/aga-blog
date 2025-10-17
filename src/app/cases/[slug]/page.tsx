@@ -124,9 +124,6 @@ export default async function CaseDetailPage({ params }: CaseDetailPageProps) {
 // 사례 상세 내용 컴포넌트
 async function CaseDetailContent({ slug }: { slug: string }) {
   try {
-    console.log('CaseDetailContent - slug:', slug)
-    console.log('CaseDetailContent - decoded slug:', decodeURIComponent(slug))
-
     // 다중 디코딩 처리
     let decodedSlug = slug
     try {
@@ -135,14 +132,11 @@ async function CaseDetailContent({ slug }: { slug: string }) {
         decodedSlug = decodeURIComponent(decodedSlug)
       }
     } catch (decodeError) {
-      console.log('Decode error, using original slug:', slug)
       decodedSlug = slug
     }
 
     // 서버 컴포넌트에서 직접 Prisma 호출 (API 호출 대신)
     const { prisma } = await import('@/lib/prisma')
-    
-    console.log('Direct Prisma call - slug:', decodedSlug)
     
     const caseData = await prisma.case.findUnique({
       where: {
@@ -158,11 +152,8 @@ async function CaseDetailContent({ slug }: { slug: string }) {
       }
     })
 
-    console.log('CaseDetailContent - caseData:', caseData)
-
     // 데이터 검증 및 정리
     if (!caseData || !caseData.id || !caseData.title) {
-      console.error('Invalid case data received:', caseData)
       return <CaseDetailFallback slug={slug} />
     }
 
