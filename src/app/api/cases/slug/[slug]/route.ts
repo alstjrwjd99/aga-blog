@@ -11,8 +11,8 @@ export async function GET(
     
     // URL 디코딩된 슬러그 사용
     const decodedSlug = decodeURIComponent(slug)
-    console.log('Original slug:', slug)
-    console.log('Decoded slug:', decodedSlug)
+    console.log('API - Original slug:', slug)
+    console.log('API - Decoded slug:', decodedSlug)
 
     const caseData = await prisma.case.findUnique({
       where: {
@@ -28,14 +28,16 @@ export async function GET(
       }
     })
 
+    console.log('API - Found case data:', caseData)
+
     if (!caseData) {
-      console.log('Case not found for slug:', decodedSlug)
+      console.log('API - Case not found for slug:', decodedSlug)
       return NextResponse.json({ error: 'Case not found' }, { status: 404 })
     }
 
     return NextResponse.json(caseData)
   } catch (error) {
-    console.error('Error fetching case by slug:', error)
+    console.error('API - Error fetching case by slug:', error)
     return NextResponse.json({ error: 'Failed to fetch case' }, { status: 500 })
   }
 }

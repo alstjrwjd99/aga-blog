@@ -70,9 +70,15 @@ export default async function CaseDetailPage({ params }: CaseDetailPageProps) {
 // 사례 상세 내용 컴포넌트
 async function CaseDetailContent({ slug }: { slug: string }) {
   try {
+    console.log('CaseDetailContent - slug:', slug)
+    console.log('CaseDetailContent - decoded slug:', decodeURIComponent(slug))
+    
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
       cache: 'no-store'
     })
+
+    console.log('CaseDetailContent - response status:', response.status)
+    console.log('CaseDetailContent - response ok:', response.ok)
 
     if (!response.ok) {
       console.error('Failed to fetch case:', response.status, response.statusText)
@@ -80,6 +86,7 @@ async function CaseDetailContent({ slug }: { slug: string }) {
     }
 
     const caseData = await response.json()
+    console.log('CaseDetailContent - caseData:', caseData)
     
     if (!caseData || !caseData.id) {
       console.error('Invalid case data received:', caseData)
