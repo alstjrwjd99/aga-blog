@@ -67,7 +67,7 @@ export async function GET() {
       prismaConnection: prismaTest,
       tables: tableInfo,
       sampleCases: caseData,
-      recommendations: []
+      recommendations: [] as string[]
     }
     
     // 권장사항 추가
