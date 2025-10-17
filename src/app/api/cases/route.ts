@@ -4,6 +4,9 @@ import { NextRequest, NextResponse } from 'next/server'
 // GET /api/cases - 사례 목록 조회 (검색, 필터링, 페이지네이션 지원)
 export async function GET(request: NextRequest) {
   try {
+    console.log('=== 사례 목록 API 시작 ===')
+    console.log('Request URL:', request.url)
+    
     const { searchParams } = new URL(request.url)
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '10')
@@ -11,6 +14,8 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search')
     const sortBy = searchParams.get('sortBy') || 'createdAt'
     const sortOrder = searchParams.get('sortOrder') || 'desc'
+
+    console.log('Query params:', { page, limit, category, search, sortBy, sortOrder })
 
     const skip = (page - 1) * limit
 
@@ -42,11 +47,22 @@ export async function GET(request: NextRequest) {
       ]
     }
 
+    console.log('Where condition:', JSON.stringify(where, null, 2))
+
     // 정렬 조건 구성
     const orderBy: Record<string, string> = {}
     orderBy[sortBy] = sortOrder
 
+    console.log('Order by:', orderBy)
+    console.log('Skip:', skip, 'Take:', limit)
+
+    // 데이터베이스 연결 테스트
+    console.log('Prisma 연결 테스트 중...')
+    const connectionTest = await prisma.$queryRaw`SELECT 1 as test`
+    console.log('Prisma 연결 성공:', connectionTest)
+
     // 사례 목록 조회 (댓글 수와 공감 수 포함)
+    console.log('사례 목록 조회 시작...')
     const cases = await prisma.case.findMany({
       where,
       orderBy,
@@ -62,10 +78,15 @@ export async function GET(request: NextRequest) {
       }
     })
 
-    // 전체 개수 조회
-    const total = await prisma.case.count({ where })
+    console.log('조회된 사례 수:', cases.length)
+    console.log('첫 번째 사례:', cases[0] ? { id: cases[0].id, title: cases[0].title, slug: cases[0].slug } : '없음')
 
-    return NextResponse.json({
+    // 전체 개수 조회
+    console.log('전체 개수 조회 중...')
+    const total = await prisma.case.count({ where })
+    console.log('전체 사례 수:', total)
+
+    const result = {
       cases,
       pagination: {
         page,
@@ -73,9 +94,17 @@ export async function GET(request: NextRequest) {
         total,
         totalPages: Math.ceil(total / limit)
       }
-    })
+    }
+
+    console.log('=== 사례 목록 API 성공 ===')
+    return NextResponse.json(result)
   } catch (error) {
-    console.error('사례 목록 조회 오류:', error)
+    console.error('=== 사례 목록 API 오류 ===')
+    console.error('Error type:', typeof error)
+    console.error('Error message:', error instanceof Error ? error.message : String(error))
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack')
+    console.error('Full error:', error)
+    
     return NextResponse.json(
       { error: '사례 목록을 불러오는데 실패했습니다.' },
       { status: 500 }
