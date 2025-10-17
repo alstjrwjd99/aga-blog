@@ -72,7 +72,7 @@ async function CaseDetailContent({ slug }: { slug: string }) {
   try {
     console.log('CaseDetailContent - slug:', slug)
     console.log('CaseDetailContent - decoded slug:', decodeURIComponent(slug))
-    
+
     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
       cache: 'no-store'
     })
@@ -87,7 +87,7 @@ async function CaseDetailContent({ slug }: { slug: string }) {
 
     const caseData = await response.json()
     console.log('CaseDetailContent - caseData:', caseData)
-    
+
     // 데이터 검증 및 정리
     if (!caseData || !caseData.id || !caseData.title) {
       console.error('Invalid case data received:', caseData)
