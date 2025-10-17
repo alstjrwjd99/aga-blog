@@ -1,0 +1,258 @@
+// Effects Mixins
+// ==============
+
+// Transition mixins
+@mixin transition($property: all, $duration: var(--transition-fast), $timing: ease-in-out) {
+  transition: $property $duration $timing;
+}
+
+@mixin transition-fast {
+  @include transition(all, var(--transition-fast));
+}
+
+@mixin transition-normal {
+  @include transition(all, var(--transition-normal));
+}
+
+@mixin transition-slow {
+  @include transition(all, var(--transition-slow));
+}
+
+// Transform mixins
+@mixin transform($transform) {
+  transform: $transform;
+}
+
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+@mixin rotate($degrees) {
+  @include transform(rotate($degrees));
+}
+
+@mixin translate($x: 0, $y: 0) {
+  @include transform(translate($x, $y));
+}
+
+@mixin translate-x($x) {
+  @include transform(translateX($x));
+}
+
+@mixin translate-y($y) {
+  @include transform(translateY($y));
+}
+
+// Hover effects
+@mixin hover-lift($lift: -2px) {
+  @include transition-fast;
+
+  &:hover {
+    @include translate-y($lift);
+  }
+}
+
+@mixin hover-scale($scale: 1.05) {
+  @include transition-fast;
+
+  &:hover {
+    @include scale($scale);
+  }
+}
+
+@mixin hover-glow($color: var(--aga-primary), $intensity: 0.3) {
+  @include transition-fast;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba($color, $intensity);
+  }
+}
+
+// Focus effects
+@mixin focus-ring($color: var(--aga-primary), $width: 2px, $offset: 2px) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: $offset;
+  }
+}
+
+@mixin focus-ring-inset($color: var(--aga-primary), $width: 2px) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: -$width;
+  }
+}
+
+// Shadow mixins
+@mixin shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+@mixin shadow-sm {
+  @include shadow(var(--shadow-sm));
+}
+
+@mixin shadow-md {
+  @include shadow(var(--shadow-md));
+}
+
+@mixin shadow-lg {
+  @include shadow(var(--shadow-lg));
+}
+
+@mixin shadow-xl {
+  @include shadow(var(--shadow-xl));
+}
+
+@mixin shadow-2xl {
+  @include shadow(var(--shadow-2xl));
+}
+
+// Border radius mixins
+@mixin rounded($radius) {
+  border-radius: $radius;
+}
+
+@mixin rounded-sm {
+  @include rounded(var(--border-radius-sm));
+}
+
+@mixin rounded-md {
+  @include rounded(var(--border-radius-md));
+}
+
+@mixin rounded-lg {
+  @include rounded(var(--border-radius-lg));
+}
+
+@mixin rounded-xl {
+  @include rounded(var(--border-radius-xl));
+}
+
+@mixin rounded-full {
+  @include rounded(var(--border-radius-full));
+}
+
+// Opacity mixins
+@mixin opacity($opacity) {
+  opacity: $opacity;
+}
+
+@mixin opacity-hover($opacity: 0.8) {
+  @include transition-fast;
+
+  &:hover {
+    @include opacity($opacity);
+  }
+}
+
+// Background mixins
+@mixin background-gradient($from, $to, $direction: 135deg) {
+  background: linear-gradient($direction, $from, $to);
+}
+
+@mixin background-overlay($color: rgba(0, 0, 0, 0.5)) {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $color;
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Animation mixins
+@mixin animation($name, $duration: 1s, $timing: ease-in-out, $iteration: infinite) {
+  animation: $name $duration $timing $iteration;
+}
+
+@mixin fade-in($duration: 0.3s) {
+  @include animation(fadeIn, $duration, ease-out, 1);
+}
+
+@mixin slide-up($duration: 0.3s) {
+  @include animation(slideUp, $duration, ease-out, 1);
+}
+
+@mixin slide-down($duration: 0.3s) {
+  @include animation(slideDown, $duration, ease-out, 1);
+}
+
+@mixin pulse($duration: 2s) {
+  @include animation(pulse, $duration, ease-in-out, infinite);
+}
+
+// Keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}

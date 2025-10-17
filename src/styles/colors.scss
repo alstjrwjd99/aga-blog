@@ -1,0 +1,174 @@
+// Color Palette
+// =============
+
+// Basic Colors
+$White: #ffffff;
+$Black: #000000;
+
+// White Opacity Variants
+$White10: rgba(255, 255, 255, 0.1);
+$White20: rgba(255, 255, 255, 0.2);
+$White30: rgba(255, 255, 255, 0.3);
+$White40: rgba(255, 255, 255, 0.4);
+$White50: rgba(255, 255, 255, 0.5);
+$White60: rgba(255, 255, 255, 0.6);
+$White70: rgba(255, 255, 255, 0.7);
+$White80: rgba(255, 255, 255, 0.8);
+$White90: rgba(255, 255, 255, 0.9);
+
+// Black Opacity Variants
+$Black10: rgba(0, 0, 0, 0.1);
+$Black20: rgba(0, 0, 0, 0.2);
+$Black30: rgba(0, 0, 0, 0.3);
+$Black40: rgba(0, 0, 0, 0.4);
+$Black50: rgba(0, 0, 0, 0.5);
+$Black60: rgba(0, 0, 0, 0.6);
+$Black70: rgba(0, 0, 0, 0.7);
+$Black80: rgba(0, 0, 0, 0.8);
+$Black90: rgba(0, 0, 0, 0.9);
+
+// Neutral Colors
+$Neutral05: #fafafc;
+$Neutral10: #f5f5f7;
+$Neutral20: #efeff2;
+$Neutral30: #e2e1e5;
+$Neutral40: #cbcacf;
+$Neutral50: #acabb0;
+$Neutral60: #87868a;
+$Neutral70: #5e5d61;
+$Neutral80: #454447;
+$Neutral90: #2d2c2e;
+
+// AGA Theme Colors (Primary Palette)
+$AgaBlue: #2563eb;
+$AgaBlueLight: #dbeafe;
+$AgaBlueDark: #1d4ed8;
+$AgaLightBlue: #3b82f6;
+$AgaBackground: #ffffff;
+$AgaBackgroundDark: #f8fafc;
+$AgaBackgroundHover: #f1f5f9;
+$AgaDarkBlue: #1e40af;
+$AgaAccentYellow: #f59e0b;
+$AgaSafeGreen: #10b981;
+$AgaTextPrimary: #1f2937;
+$AgaTextSecondary: #6b7280;
+$AgaTextTertiary: #9ca3af;
+$AgaBorder: #e5e7eb;
+$AgaShadow: rgba(0, 0, 0, 0.1);
+$AgaHover: #f3f4f6;
+
+// Violet Colors
+$Violet10: #f1edfc;
+$Violet20: #e1d7fc;
+$Violet30: #bba4ed;
+$Violet40: #7e4fdb;
+$Violet50: #5307b0;
+$VioletSurface: #f8f7fc;
+$VioletA2: #c9c3f2;
+$VioletA3: #ad97f7;
+$VioletA4: #9239fa;
+
+// Amber Colors
+$Amber10: #fff9c9;
+$Amber20: #ffe88a;
+$Amber30: #ffce47;
+$Amber40: #fcb321;
+$Amber50: #fa9e1e;
+$AmberSurface: #fffce8;
+
+// Blue Colors
+$Blue10: #54aaff;
+$Blue20: #3994fc;
+$Blue30: #1b76f5;
+$Blue40: #1664eb;
+$Blue50: #1450dd;
+$Blue10Dark: #afd8ff;
+$BlueSurface: #f0f6ff;
+$IrisSurface: #e5eeff;
+
+// Cyan Colors
+$Cyan10: #b0f7f6;
+$Cyan20: #86eef0;
+$Cyan30: #49e3e3;
+$Cyan40: #26cccf;
+$Cyan50: #06b6bd;
+$CyanSurface01: #e6fbfa;
+
+// Red Colors
+$Red10: #ffabb6;
+$Red20: #fc6c7b;
+$Red30: #fa3442;
+$Red40: #e51927;
+$Red50: #c91019;
+$RedSurface: #fff7f8;
+
+// Green Colors
+$Green10: #d1fae5;
+$Green20: #a7f3d0;
+$Green30: #19b22d;
+$Green40: #0c9621;
+$Green50: #09801c;
+$BannerGreen: #3eb853;
+$GreenSurface: #f0fdf4;
+
+// Orange Colors
+$CarrotOrange: #fa7116;
+$Orange10: #fed7aa;
+$Orange20: #fdba74;
+$Orange30: #fb923c;
+$Orange40: #f97316;
+$Orange50: #ea580c;
+
+// Festival Colors
+$FestivalOrange: #ec5f0f;
+$FestivalPink: #ef6da4;
+$FestivalPinkSurface: #fee6ff;
+$FestivalGreenSurface: #e4fac0;
+$Brown30: #edbd7c;
+
+// Kakao Colors
+$KakaoYellow: #ffe500;
+$KakaoLabel: #191919;
+
+// Mint Colors
+$Mint: #60f89d;
+$Mint10: #c6fcdd;
+$Mint20: #aefacc;
+$Mint30: #9cf5c0;
+$MintA3: #60f89d;
+$MintSurface: #edfdf4;
+
+// Skyblue Colors
+$Skyblue10: #afd8ff;
+
+// Yellow Colors
+$Yellow10: #fef3c7;
+$Yellow20: #fde68a;
+$Yellow30: #fcd34d;
+$Yellow40: #fbbf24;
+$Yellow50: #f59e0b;
+$YellowSurface: #fffbeb;
+
+// Purple Colors
+$Purple10: #e9d5ff;
+$Purple20: #d8b4fe;
+$Purple30: #c084fc;
+$Purple40: #a855f7;
+$Purple50: #9333ea;
+$PurpleSurface: #faf5ff;
+
+// Pink Colors
+$Pink10: #fce7f3;
+$Pink20: #fbcfe8;
+$Pink30: #f9a8d4;
+$Pink40: #f472b6;
+$Pink50: #ec4899;
+$PinkSurface: #fdf2f8;
+
+// Indigo Colors
+$Indigo10: #e0e7ff;
+$Indigo20: #c7d2fe;
+$Indigo30: #a5b4fc;
+$Indigo40: #818cf8;
+$Indigo50: #6366f1;
+$IndigoSurface: #eef2ff;

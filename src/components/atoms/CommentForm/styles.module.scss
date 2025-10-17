@@ -1,0 +1,130 @@
+@import '../../../styles/_aga-theme';
+
+// CommentForm Styles
+// =================
+
+.commentForm {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.commentFormHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.commentFormIcon {
+  margin-right: 0.5rem;
+}
+
+.commentFormTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.commentFormContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.commentFormInput {
+  // Input component styles are handled by the Input component itself
+}
+
+.commentFormInputLocked {
+  // 잠긴 닉네임 입력 필드 스타일
+  opacity: 0.7;
+  background-color: #F3F4F6 !important;
+  border-color: #D1D5DB !important;
+  cursor: not-allowed !important;
+
+  &:focus {
+    border-color: #D1D5DB !important;
+    box-shadow: none !important;
+  }
+}
+
+.commentFormTextareaGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentFormLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.commentFormTextarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #D1D5DB;
+  background: #FFFFFF;
+  color: #111827;
+  resize: none;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+
+  &:focus {
+    border-color: $aga-blue;
+    box-shadow: 0 0 0 3px rgba($aga-blue, 0.1);
+  }
+
+  &:hover {
+    border-color: #9CA3AF;
+  }
+
+  &::placeholder {
+    color: #9CA3AF;
+  }
+}
+
+.commentFormActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commentFormButton {
+  // Button component styles are handled by the Button component itself
+}
+
+.commentFormButtonIcon {
+  margin-right: 0.5rem;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .commentForm {
+    padding: 1rem;
+  }
+
+  .commentFormHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .commentFormNotice {
+    position: static;
+    align-self: flex-end;
+  }
+
+  .commentFormActions {
+    justify-content: stretch;
+  }
+
+  .commentFormButton {
+    width: 100%;
+  }
+}

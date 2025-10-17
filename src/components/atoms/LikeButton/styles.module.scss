@@ -1,0 +1,79 @@
+// LikeButton Component Styles
+// ==========================
+
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--border-radius-md);
+  background: var(--color-white);
+  color: var(--color-gray-600);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary-300);
+    color: var(--color-primary-600);
+    background: var(--color-primary-50);
+  }
+
+  &.liked {
+    border-color: var(--color-red-300);
+    color: var(--color-red-600);
+    background: var(--color-red-50);
+
+    &:hover {
+      border-color: var(--color-red-400);
+      background: var(--color-red-100);
+    }
+  }
+
+  .like-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover .like-icon {
+    transform: scale(1.1);
+  }
+
+  &.liked .like-icon {
+    animation: heartBeat 0.6s ease-in-out;
+  }
+
+  .like-count {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.3);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.3);
+  }
+  70% {
+    transform: scale(1);
+  }
+}

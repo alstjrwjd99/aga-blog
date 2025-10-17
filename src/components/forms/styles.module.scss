@@ -1,0 +1,180 @@
+@import '../../styles/aga-theme';
+
+.regionSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.label {
+  font-size: $aga-font-size;
+  font-weight: 500;
+  color: #1F2937;
+  margin-bottom: 0.25rem;
+}
+
+.required {
+  color: $aga-error;
+  font-weight: 600;
+}
+
+.selectContainer {
+  position: relative;
+  width: 100%;
+}
+
+.selectButton {
+  width: 100%;
+  padding: 0.75rem $aga-spacing;
+  background: $aga-background;
+  border: 1px solid $aga-border;
+  border-radius: $aga-border-radius;
+  font-size: $aga-font-size;
+  color: #1F2937;
+  cursor: pointer;
+  transition: $aga-transition;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  outline: none;
+
+  &:hover {
+    background: $aga-hover;
+    border-color: $aga-blue;
+  }
+
+  &:focus {
+    border-color: $aga-blue;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  &.open {
+    border-color: $aga-blue;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  &.error {
+    border-color: $aga-error;
+
+    &:focus {
+      border-color: $aga-error;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+}
+
+.selectText {
+  flex: 1;
+  color: #1F2937;
+
+  &:empty::before {
+    content: '지역을 선택해주세요';
+    color: $aga-text-sub;
+  }
+}
+
+.chevron {
+  color: $aga-text-sub;
+  font-size: 0.75rem;
+  transition: $aga-transition;
+  margin-left: 0.5rem;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background: $aga-background;
+  border: 1px solid $aga-border;
+  border-radius: $aga-border-radius;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 50;
+  max-height: 300px;
+  overflow-y: auto;
+  animation: slideDown 0.2s ease-out;
+
+  /* 스크롤바 스타일링 */
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 #F1F5F9;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+.optionsList {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.option {
+  padding: 0.75rem $aga-spacing;
+  cursor: pointer;
+  transition: $aga-transition;
+  color: #1F2937;
+  font-size: $aga-font-size;
+
+  &:hover {
+    background: $aga-hover;
+    color: $aga-blue;
+  }
+
+  &.selected {
+    background: $aga-light-blue;
+    color: $aga-blue;
+    font-weight: 600;
+  }
+}
+
+.errorMessage {
+  color: $aga-error;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+// 애니메이션
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .regionSelect {
+    width: 100%;
+  }
+
+  .selectButton {
+    font-size: 16px; // iOS 줌 방지
+  }
+}

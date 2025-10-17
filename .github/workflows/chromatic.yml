@@ -1,0 +1,69 @@
+name: Chromatic Visual Regression Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for Chromatic to analyze changes
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          # Chromatic project token
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # Build Storybook before running Chromatic
+          buildScriptName: build-storybook
+          # Only run on main branch or when explicitly requested
+          onlyChanged: true
+          # Auto-accept changes on main branch
+          autoAcceptChanges: ${{ github.ref == 'refs/heads/main' }}
+          # Exit with zero on visual changes (for CI)
+          exitZeroOnChanges: true
+          # Upload source maps for better debugging
+          uploadSourcemaps: true
+          # Custom build command
+          buildCommand: npm run build-storybook
+          # Storybook configuration
+          storybookBuildDir: storybook-static
+          # Working directory
+          workingDir: ./
+          # Skip build step (we already built)
+          skip: false
+          # Additional Chromatic options
+          chromaticOptions: |
+            --exit-zero-on-changes
+            --only-changed
+            --auto-accept-changes=${{ github.ref == 'refs/heads/main' }}
+            --upload-sourcemaps
+            --storybook-build-dir=storybook-static
+
+      - name: Comment PR with Chromatic link
+        if: github.event_name == 'pull_request'
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          onlyChanged: true
+          autoAcceptChanges: false
+          exitZeroOnChanges: true

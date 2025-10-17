@@ -1,0 +1,85 @@
+// 보이스피싱 사례 공유 웹사이트 Prisma 스키마
+// 피해 사례, 댓글, 공감 기능을 위한 데이터 모델 정의
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // Neon에서 지원하는 PostgreSQL 16 사용
+}
+
+// 사이트 방문 통계 모델
+model SiteVisit {
+  id        String   @id @default(cuid())
+  ipAddress String   // 방문자 IP 주소
+  userAgent String?  // 브라우저 정보
+  page      String?  // 방문한 페이지
+  referrer  String?  // 유입 경로
+  createdAt DateTime @default(now())
+
+  @@unique([ipAddress, page, createdAt]) // 같은 IP, 같은 페이지, 같은 시간에 중복 방지
+  @@map("site_visits")
+}
+
+// 피해 사례 모델
+model Case {
+  id          String   @id @default(cuid())
+  title       String   // 사례 제목
+  slug        String   @unique // SEO 친화적인 URL 슬러그
+  category    String   // 피해 유형 (보이스피싱, 문자, 링크, SNS, 리뷰알바 등)
+  amount      Int?     // 피해 금액 (원)
+  content     String   // 상세 내용
+  region      String?  // 지역
+  tip         String?  // 예방 팁
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // 관계
+  comments    Comment[]
+  likes       Like[]
+
+  @@map("cases")
+}
+
+// 댓글 모델
+model Comment {
+  id        String   @id @default(cuid())
+  nickname  String   // 닉네임
+  content   String   // 댓글 내용
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 관계
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@map("comments")
+}
+
+// 공감(좋아요) 모델
+model Like {
+  id        String   @id @default(cuid())
+  ipAddress String   // IP 주소로 중복 방지
+  createdAt DateTime @default(now())
+
+  // 관계
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@unique([caseId, ipAddress])
+  @@map("likes")
+}
+
+// 검색 통계 모델
+model SearchQuery {
+  id        String   @id @default(cuid())
+  query     String   // 검색어
+  ipAddress String   // 검색자 IP 주소
+  userAgent String?  // 브라우저 정보
+  createdAt DateTime @default(now())
+
+  @@map("search_queries")
+}

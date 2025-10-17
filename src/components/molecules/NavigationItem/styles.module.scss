@@ -1,0 +1,60 @@
+/* ==========================================
+   🧭 NAVIGATION ITEM - Header Integration
+   ========================================== */
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-weight: 600 !important;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1rem) !important;
+  transition: all 150ms ease-out;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+  }
+
+  /* 아이콘 색상 강제 적용 */
+  div {
+    color: rgba(255, 255, 255, 0.95) !important;
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+
+  &:hover div {
+    color: #ffffff !important;
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+
+  &.active div {
+    color: #ffffff !important;
+
+    img {
+      filter: brightness(0) invert(1) !important;
+    }
+  }
+}
+
+.navLabel {
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  color: inherit !important;
+}

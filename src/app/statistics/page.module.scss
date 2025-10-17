@@ -1,0 +1,287 @@
+// Statistics Page Styles
+// =====================
+
+.pageContainer {
+  min-height: 100vh;
+  background: #F9FAFB;
+  padding: 2rem 0;
+}
+
+.pageContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 1.125rem;
+  color: #6B7280;
+}
+
+.accessDenied {
+  text-align: center;
+  padding: 4rem 0;
+  max-width: 500px;
+  margin: 0 auto;
+
+  .accessDeniedTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #EF4444;
+    margin-bottom: 1rem;
+  }
+
+  .accessDeniedMessage {
+    font-size: 1.125rem;
+    color: #6B7280;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .backButton {
+    background: #3B82F6;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: #2563EB;
+    }
+  }
+}
+
+.statsHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .pageTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .pageDescription {
+    font-size: 1.125rem;
+    color: #6B7280;
+    margin-bottom: 2rem;
+  }
+
+  .periodSelector {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .periodButton {
+    padding: 0.5rem 1rem;
+    border: 1px solid #D1D5DB;
+    background: #FFFFFF;
+    color: #374151;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #F3F4F6;
+      border-color: #9CA3AF;
+    }
+
+    &.periodButtonActive {
+      background: #3B82F6;
+      color: #FFFFFF;
+      border-color: #3B82F6;
+    }
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.statsCard {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.05);
+
+  .statsCardTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .statsCardContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .statItem {
+    text-align: center;
+    padding: 1rem;
+    background: #F9FAFB;
+    border-radius: 0.75rem;
+
+    .statValue {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3B82F6;
+      margin-bottom: 0.25rem;
+    }
+
+    .statLabel {
+      font-size: 0.875rem;
+      color: #6B7280;
+    }
+  }
+}
+
+.pageStats {
+  .pageStatsTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .pageStatsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pageStatItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: #F9FAFB;
+    border-radius: 0.5rem;
+
+    .pageName {
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .pageVisits {
+      font-weight: 600;
+      color: #3B82F6;
+    }
+  }
+}
+
+.searchStats {
+  .searchStatsTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .searchStatsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .searchStatItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: #F9FAFB;
+    border-radius: 0.5rem;
+
+    .searchRank {
+      font-weight: 700;
+      color: #3B82F6;
+      font-size: 0.875rem;
+      min-width: 2rem;
+    }
+
+    .searchQuery {
+      flex: 1;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .searchCount {
+      font-weight: 600;
+      color: #6B7280;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.recentSearches {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(17, 24, 39, 0.05);
+
+  .recentSearchesTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .recentSearchesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .recentSearchItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #F9FAFB;
+    border-radius: 0.75rem;
+    border: 1px solid #E5E7EB;
+
+    .recentSearchQuery {
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .recentSearchTime {
+      font-size: 0.875rem;
+      color: #6B7280;
+    }
+  }
+}

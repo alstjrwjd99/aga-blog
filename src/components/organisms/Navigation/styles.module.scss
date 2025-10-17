@@ -1,0 +1,125 @@
+// Navigation Component Styles
+// ===========================
+
+.navigation {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+  padding: var(--spacing-sm) 0;
+
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+
+  .navigation-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--color-gray-900);
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+    }
+
+    .brand-text {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  .navigation-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+
+    .nav-item {
+      text-decoration: none;
+      color: var(--color-gray-600);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      padding: var(--spacing-xs) var(--spacing-sm);
+      border-radius: var(--border-radius-md);
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: var(--color-primary-600);
+        background: var(--color-primary-50);
+      }
+
+      &.active {
+        color: var(--color-primary-600);
+        background: var(--color-primary-100);
+      }
+    }
+  }
+
+  .navigation-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  // 모바일 메뉴
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+
+    .menu-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+
+    &.open {
+      display: block;
+    }
+
+    .mobile-nav-item {
+      display: block;
+      padding: var(--spacing-sm);
+      text-decoration: none;
+      color: var(--color-gray-600);
+      border-bottom: 1px solid var(--color-gray-100);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        color: var(--color-primary-600);
+        background: var(--color-primary-50);
+      }
+    }
+  }
+
+  // 반응형 디자인
+  @media (max-width: 768px) {
+    .navigation-menu {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: block;
+    }
+  }
+}

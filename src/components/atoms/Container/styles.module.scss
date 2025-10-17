@@ -1,0 +1,44 @@
+/* Container Component Styles */
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.containerSm {
+  max-width: 640px;
+}
+
+.containerMd {
+  max-width: 768px;
+}
+
+.containerLg {
+  max-width: 1024px;
+}
+
+.containerXl {
+  max-width: 1280px;
+}
+
+.container2xl {
+  max-width: 1536px;
+}
+
+.containerFull {
+  max-width: 100%;
+}
+
+/* 반응형 패딩 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}

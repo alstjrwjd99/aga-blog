@@ -1,0 +1,313 @@
+// Guide Page Styles
+// ================
+
+.pageContainer {
+  min-height: 100vh;
+  background: var(--color-gray-50);
+}
+
+.pageContent {
+  padding: var(--spacing-lg) 0;
+}
+
+.guideContent {
+  max-width: 6xl;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.guideHero {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+
+  .guideTitle {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-900);
+    margin-bottom: var(--spacing-md);
+
+    @media (min-width: 768px) {
+      font-size: var(--font-size-4xl);
+    }
+  }
+
+  .guideSubtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-600);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.guideLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.guideSidebar {
+  .stickySidebar {
+    position: sticky;
+    top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+
+    .sidebarTitle {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-900);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .sidebarNav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .sidebarNavItem {
+        margin-bottom: var(--spacing-xs);
+
+        .sidebarNavLink {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-sm);
+          padding: var(--spacing-sm);
+          border-radius: var(--border-radius-md);
+          text-decoration: none;
+          color: var(--color-gray-600);
+          font-size: var(--font-size-sm);
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: var(--color-gray-100);
+            color: var(--color-gray-900);
+          }
+
+          &.active {
+            background: var(--color-primary-100);
+            color: var(--color-primary-800);
+            font-weight: var(--font-weight-medium);
+          }
+
+          .sidebarNavIcon {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    .downloadButton {
+      width: 100%;
+      margin-top: var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+    }
+  }
+}
+
+.guideMain {
+  .guideSection {
+    margin-bottom: var(--spacing-2xl);
+
+    .guideSectionTitle {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-900);
+      margin-bottom: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+
+      .guideSectionIcon {
+        width: 24px;
+        height: 24px;
+        color: var(--color-primary-600);
+      }
+    }
+
+    .guideSectionDescription {
+      color: var(--color-gray-600);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--spacing-lg);
+    }
+  }
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.tipCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .tipHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+
+    .tipIcon {
+      width: 24px;
+      height: 24px;
+      color: var(--color-primary-600);
+    }
+
+    .tipTitle {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-900);
+    }
+  }
+
+  .tipDescription {
+    color: var(--color-gray-600);
+    line-height: var(--line-height-relaxed);
+  }
+}
+
+.stepsContainer {
+  margin-bottom: var(--spacing-xl);
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .stepNumber {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary-100);
+    color: var(--color-primary-800);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    flex-shrink: 0;
+  }
+
+  .stepCard {
+    flex: 1;
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+
+    .stepHeader {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+
+      .stepIcon {
+        width: 20px;
+        height: 20px;
+        color: var(--color-primary-600);
+      }
+
+      .stepTitle {
+        font-size: var(--font-size-base);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-gray-900);
+      }
+    }
+
+    .stepDescription {
+      color: var(--color-gray-600);
+      line-height: var(--line-height-relaxed);
+      font-size: var(--font-size-sm);
+    }
+  }
+}
+
+.reportGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.reportItem {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .reportHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+
+    .reportIcon {
+      width: 24px;
+      height: 24px;
+      color: var(--color-primary-600);
+    }
+
+    .reportTitle {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-900);
+    }
+  }
+
+  .reportDescription {
+    color: var(--color-gray-600);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .reportDetails {
+    .reportDetail {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-xs);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-600);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .reportDetailIcon {
+        width: 16px;
+        height: 16px;
+        color: var(--color-gray-500);
+      }
+    }
+  }
+}

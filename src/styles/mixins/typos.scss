@@ -1,0 +1,162 @@
+// Typography Mixins
+// =================
+
+// Font size mixins
+@mixin font-size($size, $line-height: 1.5) {
+  font-size: $size;
+  line-height: $line-height;
+}
+
+// Font weight mixins
+@mixin font-weight($weight) {
+  font-weight: $weight;
+}
+
+// Text mixins
+@mixin text-center {
+  text-align: center;
+}
+
+@mixin text-left {
+  text-align: left;
+}
+
+@mixin text-right {
+  text-align: right;
+}
+
+@mixin text-justify {
+  text-align: justify;
+}
+
+// Text truncation
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Typography scale mixins
+@mixin heading-1 {
+  @include font-size(var(--font-size-4xl), var(--line-height-tight));
+  @include font-weight(var(--font-weight-bold));
+  color: var(--aga-text-primary);
+}
+
+@mixin heading-2 {
+  @include font-size(var(--font-size-3xl), var(--line-height-tight));
+  @include font-weight(var(--font-weight-bold));
+  color: var(--aga-text-primary);
+}
+
+@mixin heading-3 {
+  @include font-size(var(--font-size-2xl), var(--line-height-tight));
+  @include font-weight(var(--font-weight-semibold));
+  color: var(--aga-text-primary);
+}
+
+@mixin heading-4 {
+  @include font-size(var(--font-size-xl), var(--line-height-normal));
+  @include font-weight(var(--font-weight-semibold));
+  color: var(--aga-text-primary);
+}
+
+@mixin heading-5 {
+  @include font-size(var(--font-size-lg), var(--line-height-normal));
+  @include font-weight(var(--font-weight-medium));
+  color: var(--aga-text-primary);
+}
+
+@mixin heading-6 {
+  @include font-size(var(--font-size-base), var(--line-height-normal));
+  @include font-weight(var(--font-weight-medium));
+  color: var(--aga-text-primary);
+}
+
+@mixin body-large {
+  @include font-size(var(--font-size-lg), var(--line-height-relaxed));
+  @include font-weight(var(--font-weight-normal));
+  color: var(--aga-text-primary);
+}
+
+@mixin body-medium {
+  @include font-size(var(--font-size-base), var(--line-height-normal));
+  @include font-weight(var(--font-weight-normal));
+  color: var(--aga-text-primary);
+}
+
+@mixin body-small {
+  @include font-size(var(--font-size-sm), var(--line-height-normal));
+  @include font-weight(var(--font-weight-normal));
+  color: var(--aga-text-secondary);
+}
+
+@mixin caption {
+  @include font-size(var(--font-size-xs), var(--line-height-normal));
+  @include font-weight(var(--font-weight-normal));
+  color: var(--aga-text-tertiary);
+}
+
+// Button text mixins
+@mixin button-text-large {
+  @include font-size(var(--font-size-lg), 1);
+  @include font-weight(var(--font-weight-medium));
+}
+
+@mixin button-text-medium {
+  @include font-size(var(--font-size-base), 1);
+  @include font-weight(var(--font-weight-medium));
+}
+
+@mixin button-text-small {
+  @include font-size(var(--font-size-sm), 1);
+  @include font-weight(var(--font-weight-medium));
+}
+
+// Link text mixins
+@mixin link-text {
+  @include font-size(var(--font-size-base), var(--line-height-normal));
+  @include font-weight(var(--font-weight-medium));
+  color: var(--aga-primary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--aga-primary-dark);
+    text-decoration: underline;
+  }
+}
+
+// Label text mixins
+@mixin label-text {
+  @include font-size(var(--font-size-sm), var(--line-height-normal));
+  @include font-weight(var(--font-weight-medium));
+  color: var(--aga-text-primary);
+}
+
+// Error text mixins
+@mixin error-text {
+  @include font-size(var(--font-size-xs), var(--line-height-normal));
+  @include font-weight(var(--font-weight-normal));
+  color: var(--aga-red);
+}
+
+// Success text mixins
+@mixin success-text {
+  @include font-size(var(--font-size-xs), var(--line-height-normal));
+  @include font-weight(var(--font-weight-normal));
+  color: var(--aga-green);
+}
+
+// Warning text mixins
+@mixin warning-text {
+  @include font-size(var(--font-size-xs), var(--line-height-normal));
+  @include font-weight(var(--font-weight-normal));
+  color: var(--aga-yellow-dark);
+}

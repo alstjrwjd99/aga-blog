@@ -1,0 +1,83 @@
+/* src/components/atoms/Badge/styles.module.scss */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transition: all 150ms ease-out;
+}
+
+/* Variants */
+.badgePrimary {
+  background: rgba(90, 141, 238, 0.1);
+  color: #1d4ed8;
+  border: 1px solid rgba(90, 141, 238, 0.2);
+}
+
+.badgeSecondary {
+  background: rgba(91, 91, 91, 0.1);
+  color: #334155;
+  border: 1px solid rgba(91, 91, 91, 0.2);
+}
+
+.badgeSuccess {
+  background: rgba(75, 198, 122, 0.1);
+  color: #059669;
+  border: 1px solid rgba(75, 198, 122, 0.2);
+}
+
+.badgeWarning {
+  background: rgba(255, 193, 7, 0.1);
+  color: #B8860B;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.badgeDanger {
+  background: rgba(239, 68, 68, 0.1);
+  color: #DC2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badgeInfo {
+  background: rgba(187, 210, 255, 0.1);
+  color: #1E40AF;
+  border: 1px solid rgba(187, 210, 255, 0.2);
+}
+
+/* Sizes */
+.badgeSm {
+  padding: 0.125rem 0.5rem;
+  font-size: clamp(0.625rem, 0.6rem + 0.1vw, 0.75rem);
+}
+
+.badgeMd {
+  padding: 0.25rem 0.75rem;
+  font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+}
+
+.badgeLg {
+  padding: 0.375rem 1rem;
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+}
+
+/* Responsive */
+@media (max-width: 479px) {
+  .badgeSm {
+    padding: 0.125rem 0.375rem;
+    font-size: 0.625rem;
+  }
+
+  .badgeMd {
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .badgeLg {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.875rem;
+  }
+}

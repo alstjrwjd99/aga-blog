@@ -1,0 +1,44 @@
+// BackButton Component Styles
+// ==========================
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--border-radius-md);
+  background: var(--color-white);
+  color: var(--color-gray-700);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-primary-300);
+    color: var(--color-primary-600);
+    background: var(--color-primary-50);
+    text-decoration: none;
+  }
+
+  .back-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover .back-icon {
+    transform: translateX(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

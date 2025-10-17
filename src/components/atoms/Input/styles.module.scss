@@ -1,0 +1,149 @@
+/* src/components/atoms/Input/styles.module.scss */
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.inputLabel {
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  font-weight: 500;
+  color: #1E1E1E;
+  margin-bottom: 0.25rem;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #E3E9F0;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  color: #1E1E1E;
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  line-height: 1.5;
+  transition: all 150ms ease-out;
+
+  &:focus {
+    outline: none;
+    border-color: #5A8DEE;
+    box-shadow: 0 0 0 3px rgba(90, 141, 238, 0.1);
+  }
+
+  &:disabled {
+    background: #F7F9FC;
+    color: #94a3b8;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &::placeholder {
+    color: #94a3b8;
+  }
+}
+
+/* Size Variants */
+.inputSm {
+  padding: 0.5rem 0.75rem;
+  font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+}
+
+.inputLg {
+  padding: 1rem 1.25rem;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+}
+
+/* Error State */
+.inputError {
+  border-color: #ef4444;
+
+  &:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+}
+
+.inputErrorMessage {
+  font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  color: #ef4444;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+/* Icon Styles */
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.inputIconLeft {
+  left: 0.75rem;
+}
+
+.inputIconRight {
+  right: 0.75rem;
+}
+
+.inputIconContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input with left icon */
+.inputContainer:has(.inputIconLeft) .input {
+  padding-left: 2.5rem;
+}
+
+/* Input with right icon */
+.inputContainer:has(.inputIconRight) .input {
+  padding-right: 2.5rem;
+}
+
+/* Responsive */
+@media (max-width: 479px) {
+  .input {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  .inputSm {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .inputLg {
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+  }
+
+  .inputIconLeft {
+    left: 0.625rem;
+  }
+
+  .inputIconRight {
+    right: 0.625rem;
+  }
+
+  .inputContainer:has(.inputIconLeft) .input {
+    padding-left: 2.25rem;
+  }
+
+  .inputContainer:has(.inputIconRight) .input {
+    padding-right: 2.25rem;
+  }
+}

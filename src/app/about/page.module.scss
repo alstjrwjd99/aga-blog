@@ -1,0 +1,661 @@
+// About Page Styles
+// ================
+
+.pageContainer {
+  min-height: 100vh;
+  background: #F9FAFB;
+}
+
+.pageContent {
+  padding: 3rem 0;
+}
+
+.aboutContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Hero Section
+.aboutHero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 3rem 0;
+
+  .aboutIconContainer {
+    margin-bottom: 1.5rem;
+
+    .aboutIcon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+
+      svg {
+        width: 48px;
+        height: 48px;
+        color: #2563EB;
+      }
+    }
+  }
+
+  .aboutTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+    }
+  }
+
+  .aboutSubtitle {
+    font-size: 1.25rem;
+    color: #6B7280;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+// Service Purpose Section
+.aboutPurpose {
+  margin-bottom: 3rem;
+
+  .aboutPurposeTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .aboutPurposeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .aboutPurposeItem {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(17, 24, 39, 0.05);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(17, 24, 39, 0.1);
+    }
+
+    .aboutPurposeHeader {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .aboutPurposeIcon {
+        width: 48px;
+        height: 48px;
+        background: #EFF6FF;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        svg {
+          width: 24px;
+          height: 24px;
+          color: #2563EB;
+        }
+      }
+
+      .aboutPurposeContent {
+        flex: 1;
+
+        .aboutPurposeItemTitle {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #111827;
+          margin-bottom: 0.5rem;
+        }
+
+        .aboutPurposeDescription {
+          color: #6B7280;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+// Features Section
+.aboutFeatures {
+  margin-bottom: 3rem;
+
+  .aboutFeaturesTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .aboutFeaturesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .aboutFeatureItem {
+    text-align: center;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    border-radius: 1rem;
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(17, 24, 39, 0.08);
+    }
+
+    .aboutFeatureIconContainer {
+      width: 80px;
+      height: 80px;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+
+      &.aboutFeatureIconBlue {
+        background: #EFF6FF;
+        svg { color: #2563EB; }
+      }
+
+      &.aboutFeatureIconGreen {
+        background: #F0FDF4;
+        svg { color: #16A34A; }
+      }
+
+      &.aboutFeatureIconPurple {
+        background: #FAF5FF;
+        svg { color: #9333EA; }
+      }
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .aboutFeatureTitle {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    .aboutFeatureDescription {
+      color: #6B7280;
+      line-height: 1.6;
+    }
+  }
+}
+
+// Phishing Types Section
+.aboutPhishingTypes {
+  margin-bottom: 3rem;
+
+  .aboutPhishingTypesTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .aboutPhishingTypesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1rem;
+  }
+
+  .aboutPhishingTypeItem {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #93C5FD;
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
+    }
+
+    .aboutPhishingTypeTitle {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    .aboutPhishingTypeDescription {
+      color: #6B7280;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .aboutPhishingTypeExample {
+      background: #F9FAFB;
+      border: 1px solid #D1D5DB;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+      color: #374151;
+      font-style: italic;
+    }
+  }
+}
+
+// Education Content Section
+.aboutEducationContent {
+  margin-bottom: 3rem;
+
+  .aboutEducationContentTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .aboutEducationContentItem {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(17, 24, 39, 0.05);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(17, 24, 39, 0.1);
+    }
+
+    .aboutEducationContentHeader {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+
+      .aboutEducationContentIcon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        svg {
+          width: 40px;
+          height: 40px;
+          color: #D97706;
+        }
+      }
+
+      .aboutEducationContentInfo {
+        flex: 1;
+
+        .aboutEducationContentItemTitle {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #111827;
+          margin-bottom: 0.75rem;
+        }
+
+        .aboutEducationContentDescription {
+          color: #6B7280;
+          line-height: 1.6;
+          margin-bottom: 1.5rem;
+          font-size: 1rem;
+        }
+
+        .aboutEducationContentButton {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+// Emergency Report Section
+.aboutEmergencyReport {
+  margin-bottom: 3rem;
+  background: #FEF2F2;
+  border: 2px solid #FECACA;
+  border-radius: 1rem;
+  padding: 2rem;
+
+  .aboutEmergencyHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    .aboutEmergencyIcon {
+      width: 48px;
+      height: 48px;
+      background: #FEE2E2;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: #DC2626;
+      }
+    }
+
+    .aboutEmergencyTitle {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #991B1B;
+      line-height: 1.3;
+    }
+  }
+
+  .aboutEmergencyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .aboutEmergencyItem {
+    background: #FFFFFF;
+    border: 1px solid #FECACA;
+    border-radius: 0.75rem;
+    padding: 1rem;
+
+    .aboutEmergencyItemHeader {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+
+      .aboutEmergencyItemIcon {
+        width: 20px;
+        height: 20px;
+        color: #DC2626;
+        flex-shrink: 0;
+      }
+
+      .aboutEmergencyItemTitle {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #111827;
+        line-height: 1.4;
+      }
+    }
+
+    .aboutEmergencyItemContent {
+      font-size: 0.875rem;
+      color: #6B7280;
+      line-height: 1.6;
+
+      p {
+        margin-bottom: 0.25rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        strong {
+          color: #374151;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .aboutEmergencyNotice {
+    background: #FEE2E2;
+    border: 1px solid #FCA5A5;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+
+    p {
+      color: #991B1B;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin: 0;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Usage Guide Section
+.aboutUsageGuide {
+  margin-bottom: 3rem;
+
+  .aboutUsageGuideTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .aboutUsageGuideItems {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .aboutUsageGuideItem {
+    border-radius: 0.75rem;
+    padding: 1rem;
+
+    &.aboutUsageGuideBlue {
+      background: #EFF6FF;
+      border-left: 4px solid #3B82F6;
+
+      .aboutUsageGuideItemTitle {
+        color: #1E40AF;
+      }
+
+      .aboutUsageGuideList {
+        li {
+          color: #1D4ED8;
+
+          &::marker {
+            color: #2563EB;
+          }
+        }
+      }
+    }
+
+    &.aboutUsageGuideGreen {
+      background: #F0FDF4;
+      border-left: 4px solid #22C55E;
+
+      .aboutUsageGuideItemTitle {
+        color: #166534;
+      }
+
+      .aboutUsageGuideList {
+        li {
+          color: #15803D;
+
+          &::marker {
+            color: #16A34A;
+          }
+        }
+      }
+    }
+
+    .aboutUsageGuideItemTitle {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .aboutUsageGuideList {
+      list-style-type: disc;
+      padding-left: 1rem;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.25rem;
+        line-height: 1.6;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// CTA Section
+.aboutCta {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #F9FAFB, #EFF6FF);
+  border-radius: 1rem;
+
+  .aboutCtaTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+
+  .aboutCtaDescription {
+    font-size: 1.125rem;
+    color: #6B7280;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .aboutCtaActions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    @media (min-width: 640px) {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .aboutContent {
+    padding: 0 1rem;
+  }
+
+  .aboutHero {
+    padding: 1.5rem 0;
+
+    .aboutTitle {
+      font-size: 2rem;
+    }
+
+    .aboutSubtitle {
+      font-size: 1.125rem;
+    }
+  }
+
+  .aboutPurposeGrid,
+  .aboutFeaturesGrid,
+  .aboutPhishingTypesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutEmergencyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutPurposeItem,
+  .aboutFeatureItem,
+  .aboutPhishingTypeItem {
+    padding: 1rem;
+  }
+
+  .aboutEducationContentItem {
+    padding: 1.5rem;
+
+    .aboutEducationContentHeader {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+
+      .aboutEducationContentIcon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutHero {
+    .aboutIconContainer .aboutIcon {
+      width: 80px;
+      height: 80px;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .aboutTitle {
+      font-size: 1.75rem;
+    }
+
+    .aboutSubtitle {
+      font-size: 1rem;
+    }
+  }
+
+  .aboutPurposeTitle,
+  .aboutFeaturesTitle,
+  .aboutPhishingTypesTitle,
+  .aboutUsageGuideTitle,
+  .aboutCtaTitle {
+    font-size: 1.5rem;
+  }
+}

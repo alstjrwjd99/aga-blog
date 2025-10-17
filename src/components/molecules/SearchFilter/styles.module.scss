@@ -1,0 +1,145 @@
+// SearchFilter Component Styles
+// ============================
+
+.search-filter {
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+
+  .search-filter-header {
+    margin-bottom: var(--spacing-md);
+
+    h3 {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-900);
+      margin: 0;
+    }
+  }
+
+  .search-filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    .search-input-group {
+      position: relative;
+
+      .search-input {
+        width: 100%;
+        padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 40px;
+        border: 1px solid var(--color-gray-300);
+        border-radius: var(--border-radius-md);
+        font-size: var(--font-size-sm);
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: var(--color-primary-500);
+          box-shadow: 0 0 0 3px var(--color-primary-100);
+        }
+      }
+
+      .search-icon {
+        position: absolute;
+        left: var(--spacing-sm);
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--color-gray-400);
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+
+      .filter-item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        min-width: 120px;
+
+        label {
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-medium);
+          color: var(--color-gray-700);
+        }
+
+        select {
+          padding: var(--spacing-xs) var(--spacing-sm);
+          border: 1px solid var(--color-gray-300);
+          border-radius: var(--border-radius-md);
+          font-size: var(--font-size-sm);
+          background: var(--color-white);
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+          }
+        }
+      }
+    }
+
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-sm);
+
+      .filter-reset {
+        color: var(--color-gray-500);
+        font-size: var(--font-size-sm);
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--color-gray-700);
+        }
+      }
+
+      .filter-submit {
+        padding: var(--spacing-xs) var(--spacing-md);
+        background: var(--color-primary-600);
+        color: var(--color-white);
+        border: none;
+        border-radius: var(--border-radius-md);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: var(--color-primary-700);
+        }
+      }
+    }
+  }
+
+  // 반응형 디자인
+  @media (max-width: 768px) {
+    .search-filter-content {
+      .filter-group {
+        flex-direction: column;
+
+        .filter-item {
+          min-width: 100%;
+        }
+      }
+
+      .filter-actions {
+        flex-direction: column;
+        align-items: stretch;
+
+        .filter-submit {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

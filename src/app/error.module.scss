@@ -1,0 +1,148 @@
+/* src/app/error.module.scss */
+
+.errorContainer {
+  min-height: 100vh;
+  background: #F7F9FC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.errorCard {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E3E9F0;
+  max-width: 600px;
+  width: 100%;
+}
+
+.errorContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.errorIconContainer {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+}
+
+.errorIcon {
+  font-size: 32px;
+}
+
+.errorMessage {
+  text-align: center;
+}
+
+.errorTitle {
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  font-weight: 700;
+  color: #1E1E1E;
+  margin-bottom: 1rem;
+}
+
+.errorDescription {
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+  color: #5B5B5B;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.errorDetails {
+  background: #f1f5f9;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.errorDetailsText {
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  color: #94a3b8;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  word-break: break-all;
+}
+
+.errorActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .errorActions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.errorHelp {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E3E9F0;
+}
+
+.errorHelpContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+}
+
+.errorHelpIcon {
+  flex-shrink: 0;
+  color: #FFD93D;
+}
+
+.errorHelpText {
+  flex: 1;
+}
+
+.errorHelpTitle {
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  font-weight: 600;
+  color: #1E1E1E;
+  margin-bottom: 0.5rem;
+}
+
+.errorHelpDescription {
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  color: #5B5B5B;
+  margin-bottom: 0.75rem;
+}
+
+.errorHelpList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.errorHelpList li {
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  color: #5B5B5B;
+  margin-bottom: 0.25rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.errorHelpList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #5A8DEE;
+}

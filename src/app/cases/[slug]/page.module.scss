@@ -1,0 +1,596 @@
+// Case Detail Page Styles
+// =======================
+
+.pageContainer {
+  min-height: 100vh;
+  background: #F9FAFB;
+}
+
+.pageContent {
+  padding: 2rem 0;
+}
+
+.caseDetailContent {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.cardPaddingLg {
+  padding: 2rem;
+}
+
+.caseDetailCardContent {
+  // 카드 내용 컨테이너
+}
+
+// 헤더 섹션
+.caseDetailHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.caseDetailHeaderLeft {
+  flex: 1;
+}
+
+.caseDetailHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.caseDetailMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.caseDetailDate {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.caseDetailDateIcon {
+  margin-right: 0.25rem;
+}
+
+.caseDetailRegionMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #6B7280;
+  background: #F9FAFB;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.caseDetailRegionIcon {
+  margin-right: 0.25rem;
+}
+
+.caseDetailAmountMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(to right, #FEF2F2, #FEE2E2);
+  border: 1px solid #FECACA;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.caseDetailAmountIcon {
+  color: #DC2626;
+}
+
+.caseDetailAmountLabel {
+  color: #991B1B;
+  font-weight: 500;
+}
+
+.caseDetailAmountValue {
+  color: #B91C1C;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.caseDetailTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+// 사례 내용
+.caseDetailContentSection {
+  margin-bottom: 2rem;
+}
+
+.caseDetailContentTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.caseDetailContentText {
+  color: #374151;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+// Key Takeaway 박스
+.caseDetailTakeaway {
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.caseDetailTakeawayHeader {
+  margin-bottom: 1rem;
+}
+
+.caseDetailTakeawayTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #92400E;
+  margin: 0;
+}
+
+.caseDetailTakeawayContent {
+  color: #B45309;
+  line-height: 1.75;
+
+  p {
+    color: #B45309;
+    margin: 0;
+    line-height: 1.75;
+  }
+
+  strong {
+    color: #92400E;
+    font-weight: 600;
+  }
+}
+
+// Red Flag 박스
+.caseDetailRedFlag {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.caseDetailRedFlagHeader {
+  margin-bottom: 1rem;
+}
+
+.caseDetailRedFlagTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #991B1B;
+  margin: 0;
+}
+
+.caseDetailRedFlagContent {
+  // Red flag content container
+}
+
+.caseDetailRedFlagList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.caseDetailRedFlagItem {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #FECACA;
+  color: #991B1B;
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &::before {
+    content: "•";
+    color: #EF4444;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+}
+
+// 예방 팁
+.caseDetailTip {
+  background: linear-gradient(to right, #F0FDF4, #DCFCE7);
+  border: 1px solid #BBF7D0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.caseDetailTipContent {
+  // Tip content container
+}
+
+.caseDetailTipTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #166534;
+  margin: 0 0 0.75rem 0;
+}
+
+.caseDetailTipText {
+  color: #15803D;
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+// 통계 정보
+.caseDetailStats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-top: 1px solid #E5E7EB;
+  margin-top: 1.5rem;
+}
+
+.caseDetailStatsLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.caseDetailStatItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+.caseDetailStatIcon {
+  margin-right: 0.25rem;
+}
+
+.caseDetailStatsRight {
+  // Stats right container
+}
+
+.caseDetailViewCount {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+// 관련 사례 섹션
+.caseDetailRelated {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.caseDetailRelatedTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.caseDetailRelatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.caseDetailRelatedCard {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+}
+
+.caseDetailRelatedHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.caseDetailRelatedDate {
+  font-size: 0.75rem;
+  color: #6B7280;
+}
+
+.caseDetailRelatedStats {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.caseDetailRelatedStat {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: #6B7280;
+}
+
+.caseDetailRelatedStatIcon {
+  // Related stat icon styles
+}
+
+.caseDetailRelatedLink {
+  // Related link button styles
+}
+
+.caseDetailRelatedEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  color: #6B7280;
+  text-align: center;
+
+  p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #6B7280;
+  }
+}
+
+.caseDetailSkeletonRelatedCard {
+  height: 12rem;
+  background: #E5E7EB;
+  border-radius: 0.75rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+// 댓글 섹션
+.caseDetailComments {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.caseDetailCommentsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+// 스켈레톤 스타일
+.caseDetailSkeleton {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.caseDetailSkeletonBackButton {
+  height: 2.5rem;
+  width: 8rem;
+  background: #E5E7EB;
+  border-radius: 0.5rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 2rem;
+}
+
+.caseDetailSkeletonCard {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.caseDetailSkeletonContent {
+  // Skeleton content container
+}
+
+.caseDetailSkeletonHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.caseDetailSkeletonHeaderLeft {
+  flex: 1;
+}
+
+.caseDetailSkeletonMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.caseDetailSkeletonBadge {
+  height: 1.5rem;
+  width: 5rem;
+  background: #E5E7EB;
+  border-radius: 9999px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.caseDetailSkeletonDate {
+  height: 1rem;
+  width: 8rem;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.caseDetailSkeletonTitle {
+  height: 2rem;
+  width: 75%;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 1rem;
+}
+
+.caseDetailSkeletonLikeButton {
+  height: 2.5rem;
+  width: 5rem;
+  background: #E5E7EB;
+  border-radius: 0.5rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.caseDetailSkeletonAmount {
+  height: 8rem;
+  background: #E5E7EB;
+  border-radius: 0.75rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 1rem;
+}
+
+.caseDetailSkeletonRegion {
+  height: 1rem;
+  width: 50%;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 1rem;
+}
+
+.caseDetailSkeletonContentText {
+  height: 12rem;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 1rem;
+}
+
+.caseDetailSkeletonTakeaway {
+  height: 8rem;
+  background: #E5E7EB;
+  border-radius: 0.75rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 1rem;
+}
+
+.caseDetailSkeletonStats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-top: 1px solid #E5E7EB;
+  margin-top: 1.5rem;
+}
+
+.caseDetailSkeletonStatsLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.caseDetailSkeletonStat {
+  height: 1rem;
+  width: 5rem;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.caseDetailSkeletonViewCount {
+  height: 1rem;
+  width: 4rem;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.caseDetailSkeletonComments {
+  padding: 2rem;
+}
+
+.caseDetailSkeletonCommentsTitle {
+  height: 2rem;
+  width: 4rem;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  margin-bottom: 1.5rem;
+}
+
+.caseDetailSkeletonCommentForm {
+  height: 8rem;
+  background: #E5E7EB;
+  border-radius: 0.25rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+// 애니메이션
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .caseDetailContent {
+    padding: 1rem;
+  }
+
+  .caseDetailTitle {
+    font-size: 1.5rem;
+  }
+
+  .caseDetailMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .caseDetailHeaderRight {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .caseDetailAmountMeta {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .caseDetailRelatedGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caseDetailStats {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .caseDetailStatsLeft {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}

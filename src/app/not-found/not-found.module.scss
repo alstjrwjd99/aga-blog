@@ -1,0 +1,139 @@
+// Not Found Page Styles
+// =====================
+
+.notFoundContainer {
+  min-height: 100vh;
+  background: var(--color-neutral-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.notFoundCard {
+  max-width: 600px;
+  width: 100%;
+  padding: var(--space-8);
+  background: var(--color-surface-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-neutral-200);
+}
+
+.notFoundContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.notFoundIconContainer {
+  .notFoundIcon {
+    width: 80px;
+    height: 80px;
+    background: var(--color-danger);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+
+.notFoundText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.notFoundTitle {
+  font-size: var(--text-6xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-600);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+.notFoundSubtitle {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.notFoundDescription {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.notFoundActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+
+  @media (min-width: 480px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.notFoundHelp {
+  width: 100%;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.notFoundHelpContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.notFoundHelpIcon {
+  flex-shrink: 0;
+  margin-top: var(--space-1);
+}
+
+.notFoundHelpText {
+  flex: 1;
+}
+
+.notFoundHelpTitle {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.notFoundHelpDescription {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-3) 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.notFoundHelpList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+    line-height: var(--line-height-relaxed);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+/* src/components/atoms/Icon/styles.module.scss */
+
+/* Size Variants */
+.iconXs {
+  width: 12px;
+  height: 12px;
+}
+
+.iconSm {
+  width: 16px;
+  height: 16px;
+}
+
+.iconMd {
+  width: 20px;
+  height: 20px;
+}
+
+.iconLg {
+  width: 24px;
+  height: 24px;
+}
+
+.iconXl {
+  width: 32px;
+  height: 32px;
+}
+
+/* Color Variants */
+.iconPrimary {
+  color: #5A8DEE;
+}
+
+.iconSecondary {
+  color: #5B5B5B;
+}
+
+.iconSuccess {
+  color: #4BC67A;
+}
+
+.iconWarning {
+  color: #FFD93D;
+}
+
+.iconDanger {
+  color: #ef4444;
+}
+
+.iconInfo {
+  color: #BBD2FF;
+}
+
+/* Responsive */
+@media (max-width: 479px) {
+  .iconXs {
+    width: 10px;
+    height: 10px;
+  }
+
+  .iconSm {
+    width: 14px;
+    height: 14px;
+  }
+
+  .iconMd {
+    width: 18px;
+    height: 18px;
+  }
+
+  .iconLg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .iconXl {
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -1,0 +1,261 @@
+// CategorySelect Component Styles
+// ===============================
+
+.categorySelect {
+  position: relative;
+  width: 100%;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 8px !important;
+  font-size: 0.875rem;
+  color: #1F2937 !important;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  transition: all 0.2s ease-out;
+  outline: none !important;
+  box-shadow: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+
+  &:focus {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    color: #1F2937 !important;
+    outline: none !important;
+  }
+
+  &::placeholder {
+    color: #9CA3AF !important;
+  }
+}
+
+.dropdownButton {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.15s ease-out;
+
+  &:hover {
+    background: #F3F4F6;
+  }
+
+  &:focus {
+    outline: none;
+    background: #F3F4F6;
+  }
+}
+
+.chevron {
+  transition: transform 0.2s ease-out;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.selectedTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.selectedTag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: 6px;
+  max-width: fit-content;
+}
+
+.tagText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1D4ED8;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  padding: 0.125rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.15s ease-out;
+
+  &:hover {
+    background: #DBEAFE;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 50;
+  max-height: 300px;
+  overflow-y: auto;
+  animation: slideDown 0.2s ease-out;
+
+  /* 스크롤바 스타일링 */
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 #F1F5F9;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #F1F5F9;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+}
+
+.section {
+  padding: 0.5rem 0;
+}
+
+.sectionTitle {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6B7280 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: none;
+  font-size: 0.875rem;
+  color: #374151 !important;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  border-radius: 0;
+
+  &:hover {
+    background: #F8FAFC !important;
+    background-color: #F8FAFC !important;
+    color: #1F2937 !important;
+  }
+
+  &:focus {
+    outline: none;
+    background: #F8FAFC !important;
+    background-color: #F8FAFC !important;
+  }
+}
+
+.optionSelected {
+  background: #EFF6FF !important;
+  background-color: #EFF6FF !important;
+  color: #1D4ED8 !important;
+  font-weight: 500;
+
+  &:hover {
+    background: #DBEAFE !important;
+    background-color: #DBEAFE !important;
+  }
+}
+
+.createOption {
+  color: #3B82F6;
+  font-weight: 500;
+
+  &:hover {
+    background: #EFF6FF;
+    color: #1D4ED8;
+  }
+}
+
+.optionActive {
+  background: #EFF6FF !important;
+  background-color: #EFF6FF !important;
+  color: #1D4ED8 !important;
+  font-weight: 600;
+
+  &:hover {
+    background: #DBEAFE !important;
+    background-color: #DBEAFE !important;
+  }
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.75rem;
+  color: #9CA3AF;
+  font-size: 0.875rem;
+  text-align: center;
+  justify-content: center;
+}
+
+// 애니메이션
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .input {
+    font-size: 16px; // iOS 줌 방지
+  }
+
+  .dropdown {
+    max-height: 250px;
+  }
+}
+
+// 다크 모드 지원 제거

@@ -1,0 +1,76 @@
+import Link from 'next/link'
+import styles from './styles.module.scss'
+import { Shield, Home, FileText, Plus, BarChart3 } from 'lucide-react'
+
+export default function Navigation() {
+  const navItems = [
+    { href: '/', label: '홈', icon: Home },
+    { href: '/cases', label: '사례 목록', icon: FileText },
+    { href: '/cases/submit', label: '사례 등록', icon: Plus },
+    { href: '/statistics', label: '통계', icon: BarChart3 },
+    { href: '/about', label: '서비스 소개', icon: Shield }
+  ]
+
+  return (
+    <nav className="bg-white border-b border-secondary-200 sticky top-0 z-50 shadow-soft">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* 로고 */}
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-soft">
+              <Shield className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-bold text-secondary-900">
+              피싱 방지 센터
+            </span>
+          </Link>
+
+          {/* 네비게이션 메뉴 */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => {
+              const Icon = item.icon
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="flex items-center space-x-1 text-secondary-600 hover:text-primary-600 transition-colors duration-200"
+                >
+                  <Icon className="w-4 h-4" />
+                  <span>{item.label}</span>
+                </Link>
+              )
+            })}
+          </div>
+
+          {/* 모바일 메뉴 버튼 */}
+          <div className="md:hidden">
+            <button className="text-secondary-600 hover:text-primary-600 transition-colors duration-200">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 모바일 메뉴 (추후 구현) */}
+      <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="px-4 py-2 space-y-1">
+          {navItems.map((item) => {
+            const Icon = item.icon
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-center space-x-2 px-3 py-2 text-gray-600 hover:text-red-600 hover:bg-gray-50 rounded-md transition-colors"
+              >
+                <Icon className="w-4 h-4" />
+                <span>{item.label}</span>
+              </Link>
+            )
+          })}
+        </div>
+      </div>
+    </nav>
+  )
+}
