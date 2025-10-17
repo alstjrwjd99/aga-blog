@@ -3,7 +3,6 @@
 import StructuredDataLDJSON from '@/components/atoms/StructuredDataLDJSON'
 import { AGA_LOGO_IMAGE_ALT, AGA_LOGO_IMAGE_URL } from '@/constants/globals'
 import { NextSeo } from 'next-seo'
-import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 
 // 상수는 constants/globals.ts에서 import
