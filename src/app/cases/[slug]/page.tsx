@@ -69,15 +69,22 @@ export default async function CaseDetailPage({ params }: CaseDetailPageProps) {
 
 // 사례 상세 내용 컴포넌트
 async function CaseDetailContent({ slug }: { slug: string }) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
-    cache: 'no-store'
-  })
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
+      cache: 'no-store'
+    })
 
-  if (!response.ok) {
-    notFound()
-  }
+    if (!response.ok) {
+      console.error('Failed to fetch case:', response.status, response.statusText)
+      notFound()
+    }
 
-  const caseData = await response.json()
+    const caseData = await response.json()
+    
+    if (!caseData || !caseData.id) {
+      console.error('Invalid case data received:', caseData)
+      notFound()
+    }
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('ko-KR', {
@@ -246,6 +253,10 @@ async function CaseDetailContent({ slug }: { slug: string }) {
         </div>
       </>
     )
+  } catch (error) {
+    console.error('Error in CaseDetailContent:', error)
+    notFound()
+  }
 }
 
 // 로딩 스켈레톤
