@@ -53,11 +53,27 @@ export async function generateMetadata({ params }: CaseDetailPageProps): Promise
   const { slug } = await params
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
-      cache: 'no-store'
+    // 서버 컴포넌트에서 직접 Prisma 호출 (API 호출 대신)
+    const { prisma } = await import('@/lib/prisma')
+    
+    // 다중 디코딩 처리
+    let decodedSlug = slug
+    try {
+      decodedSlug = decodeURIComponent(slug)
+      if (decodedSlug !== slug) {
+        decodedSlug = decodeURIComponent(decodedSlug)
+      }
+    } catch (decodeError) {
+      decodedSlug = slug
+    }
+    
+    const caseData = await prisma.case.findUnique({
+      where: {
+        slug: decodedSlug
+      }
     })
 
-    if (!response.ok) {
+    if (!caseData) {
       return seoMetadata.caseDetail({
         id: slug,
         title: '피해 사례 상세',
@@ -67,8 +83,6 @@ export async function generateMetadata({ params }: CaseDetailPageProps): Promise
         updatedAt: new Date().toISOString(),
       })
     }
-
-    const caseData = await response.json()
 
     return seoMetadata.caseDetail(caseData)
   } catch {
@@ -116,20 +130,25 @@ async function CaseDetailContent({ slug }: { slug: string }) {
       decodedSlug = slug
     }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${decodedSlug}`, {
-      cache: 'no-store'
+    // 서버 컴포넌트에서 직접 Prisma 호출 (API 호출 대신)
+    const { prisma } = await import('@/lib/prisma')
+    
+    console.log('Direct Prisma call - slug:', decodedSlug)
+    
+    const caseData = await prisma.case.findUnique({
+      where: {
+        slug: decodedSlug
+      },
+      include: {
+        _count: {
+          select: {
+            comments: true,
+            likes: true
+          }
+        }
+      }
     })
 
-    console.log('CaseDetailContent - response status:', response.status)
-    console.log('CaseDetailContent - response ok:', response.ok)
-
-    if (!response.ok) {
-      console.error('Failed to fetch case:', response.status, response.statusText)
-      // 임시로 기본 데이터 반환
-      return <CaseDetailFallback slug={slug} />
-    }
-
-    const caseData = await response.json()
     console.log('CaseDetailContent - caseData:', caseData)
 
     // 데이터 검증 및 정리
