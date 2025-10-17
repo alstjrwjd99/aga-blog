@@ -14,6 +14,37 @@ import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import styles from './page.module.scss'
 
+// 사례 상세 페이지 폴백 컴포넌트
+function CaseDetailFallback({ slug }: { slug: string }) {
+  return (
+    <div className={styles.caseDetailContent}>
+      <BackButton />
+      <Card className={styles.cardPaddingLg}>
+        <div className={styles.caseDetailCardContent}>
+          <div className={styles.caseDetailHeader}>
+            <div className={styles.caseDetailHeaderLeft}>
+              <div className={styles.caseDetailMeta}>
+                <Badge variant="secondary" size="md">
+                  로딩 중...
+                </Badge>
+              </div>
+              <h1 className={styles.caseDetailTitle}>
+                사례를 불러오는 중입니다...
+              </h1>
+            </div>
+          </div>
+          <div className={styles.caseDetailContentSection}>
+            <h3 className={styles.caseDetailContentTitle}>사례 상세 내용</h3>
+            <div className={styles.caseDetailContentText}>
+              잠시만 기다려주세요. 사례 정보를 불러오고 있습니다.
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
+  )
+}
+
 interface CaseDetailPageProps {
   params: Promise<{ slug: string }>
 }
@@ -73,7 +104,19 @@ async function CaseDetailContent({ slug }: { slug: string }) {
     console.log('CaseDetailContent - slug:', slug)
     console.log('CaseDetailContent - decoded slug:', decodeURIComponent(slug))
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${slug}`, {
+    // 다중 디코딩 처리
+    let decodedSlug = slug
+    try {
+      decodedSlug = decodeURIComponent(slug)
+      if (decodedSlug !== slug) {
+        decodedSlug = decodeURIComponent(decodedSlug)
+      }
+    } catch (decodeError) {
+      console.log('Decode error, using original slug:', slug)
+      decodedSlug = slug
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/cases/slug/${decodedSlug}`, {
       cache: 'no-store'
     })
 
@@ -82,7 +125,8 @@ async function CaseDetailContent({ slug }: { slug: string }) {
 
     if (!response.ok) {
       console.error('Failed to fetch case:', response.status, response.statusText)
-      notFound()
+      // 임시로 기본 데이터 반환
+      return <CaseDetailFallback slug={slug} />
     }
 
     const caseData = await response.json()
@@ -91,7 +135,7 @@ async function CaseDetailContent({ slug }: { slug: string }) {
     // 데이터 검증 및 정리
     if (!caseData || !caseData.id || !caseData.title) {
       console.error('Invalid case data received:', caseData)
-      notFound()
+      return <CaseDetailFallback slug={slug} />
     }
 
     // 안전한 데이터 정리

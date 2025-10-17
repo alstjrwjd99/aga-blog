@@ -8,7 +8,7 @@ export async function GET(
 ) {
   try {
     const { slug } = await params
-    
+
     // 다중 디코딩 처리 (중첩 인코딩된 경우 대비)
     let decodedSlug = slug
     try {
@@ -21,7 +21,7 @@ export async function GET(
       console.log('API - Decode error, using original slug:', slug)
       decodedSlug = slug
     }
-    
+
     console.log('API - Original slug:', slug)
     console.log('API - Decoded slug:', decodedSlug)
 
