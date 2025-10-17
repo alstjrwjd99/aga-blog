@@ -1,13 +1,8 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '@/lib/prisma'
+import { NextRequest, NextResponse } from 'next/server'
 
-const prisma = new PrismaClient()
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' })
-  }
-
+// POST /api/seed - 샘플 데이터 생성
+export async function POST(request: NextRequest) {
   try {
     console.log('샘플 데이터를 추가하는 중...')
 
@@ -79,12 +74,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     console.log('샘플 데이터 추가 완료!')
-    res.status(200).json({ message: '샘플 데이터가 성공적으로 추가되었습니다.' })
+    return NextResponse.json({ message: '샘플 데이터가 성공적으로 추가되었습니다.' })
 
   } catch (error) {
     console.error('데이터 추가 중 오류:', error)
-    res.status(500).json({ error: '데이터 추가 중 오류가 발생했습니다.' })
-  } finally {
-    await prisma.$disconnect()
+    return NextResponse.json({ 
+      error: '데이터 추가 중 오류가 발생했습니다.',
+      details: error instanceof Error ? error.message : '알 수 없는 오류'
+    }, { status: 500 })
   }
 }

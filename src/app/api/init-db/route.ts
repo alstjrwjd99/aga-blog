@@ -6,12 +6,12 @@ export async function GET(request: NextRequest) {
   try {
     // 데이터베이스 연결 테스트
     await prisma.$connect()
-    
+
     // 테이블 존재 확인
     const caseCount = await prisma.case.count()
     const commentCount = await prisma.comment.count()
     const likeCount = await prisma.like.count()
-    
+
     return NextResponse.json({
       success: true,
       message: '데이터베이스 연결 성공',
