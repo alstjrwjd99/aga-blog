@@ -84,7 +84,16 @@ export async function generateMetadata({ params }: CaseDetailPageProps): Promise
       })
     }
 
-    return seoMetadata.caseDetail(caseData)
+    return seoMetadata.caseDetail({
+      id: caseData.id,
+      title: caseData.title,
+      content: caseData.content,
+      category: caseData.category,
+      amount: caseData.amount || undefined,
+      region: caseData.region || undefined,
+      createdAt: caseData.createdAt.toISOString(),
+      updatedAt: caseData.updatedAt.toISOString()
+    })
   } catch {
     return seoMetadata.caseDetail({
       id: slug,
@@ -163,11 +172,11 @@ async function CaseDetailContent({ slug }: { slug: string }) {
       title: caseData.title || '제목 없음',
       content: caseData.content || '내용 없음',
       category: caseData.category || '기타',
-      region: caseData.region || null,
-      tip: caseData.tip || null,
-      amount: caseData.amount || null,
-      createdAt: caseData.createdAt || new Date().toISOString(),
-      updatedAt: caseData.updatedAt || new Date().toISOString(),
+      region: caseData.region || undefined,
+      tip: caseData.tip || undefined,
+      amount: caseData.amount || undefined,
+      createdAt: caseData.createdAt.toISOString(),
+      updatedAt: caseData.updatedAt.toISOString(),
       _count: caseData._count || { comments: 0, likes: 0 }
     }
 
