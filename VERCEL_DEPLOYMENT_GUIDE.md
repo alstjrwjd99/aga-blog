@@ -4,7 +4,14 @@
 
 ### 1. Neon DB 연결 문자열 형식
 ```
-postgresql://username:password@hostname:port/database?sslmode=require
+postgresql://username:password@hostname:port/neondb?sslmode=require
+```
+
+**중요**: 데이터베이스 이름이 `neondb`인 경우 연결 문자열 마지막에 `/neondb`가 포함되어야 합니다.
+
+#### 예시:
+```
+postgresql://myuser:mypassword@ep-cool-name-123456.us-east-1.aws.neon.tech/neondb?sslmode=require
 ```
 
 ### 2. Vercel 환경변수 설정
@@ -19,7 +26,7 @@ Vercel 대시보드에서 다음 환경변수를 설정하세요:
 2. Settings → Environment Variables
 3. 다음 변수들 추가:
    ```
-   DATABASE_URL = postgresql://[username]:[password]@[hostname]:[port]/[database]?sslmode=require
+   DATABASE_URL = postgresql://[username]:[password]@[hostname]:[port]/neondb?sslmode=require
    NEXT_PUBLIC_BASE_URL = https://aga-blog.vercel.app
    ```
 
@@ -37,10 +44,11 @@ Vercel 대시보드에서 다음 환경변수를 설정하세요:
 ## 🔧 문제 해결
 
 ### PostgreSQL 연결 오류 시:
-1. 연결 문자열 형식 확인
-2. SSL 설정 확인 (`sslmode=require`)
-3. Neon DB 상태 확인
-4. Vercel 환경변수 재설정
+1. **데이터베이스 이름 확인**: 연결 문자열에 `/neondb`가 포함되어 있는지 확인
+2. **연결 문자열 형식 확인**: `postgresql://`로 시작하는지 확인
+3. **SSL 설정 확인**: `sslmode=require`가 포함되어 있는지 확인
+4. **Neon DB 상태 확인**: 데이터베이스가 활성 상태인지 확인
+5. **Vercel 환경변수 재설정**: 올바른 연결 문자열로 다시 설정
 
 ### 데이터베이스 초기화:
 ```bash
