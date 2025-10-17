@@ -88,9 +88,24 @@ async function CaseDetailContent({ slug }: { slug: string }) {
     const caseData = await response.json()
     console.log('CaseDetailContent - caseData:', caseData)
     
-    if (!caseData || !caseData.id) {
+    // 데이터 검증 및 정리
+    if (!caseData || !caseData.id || !caseData.title) {
       console.error('Invalid case data received:', caseData)
       notFound()
+    }
+
+    // 안전한 데이터 정리
+    const safeCaseData = {
+      ...caseData,
+      title: caseData.title || '제목 없음',
+      content: caseData.content || '내용 없음',
+      category: caseData.category || '기타',
+      region: caseData.region || null,
+      tip: caseData.tip || null,
+      amount: caseData.amount || null,
+      createdAt: caseData.createdAt || new Date().toISOString(),
+      updatedAt: caseData.updatedAt || new Date().toISOString(),
+      _count: caseData._count || { comments: 0, likes: 0 }
     }
 
   const formatDate = (dateString: string) => {
@@ -121,12 +136,12 @@ async function CaseDetailContent({ slug }: { slug: string }) {
 
   return (
       <>
-        <ArticleStructuredData caseData={caseData} />
+        <ArticleStructuredData caseData={safeCaseData} />
         <BreadcrumbStructuredData
           items={[
             { name: '홈', url: '/' },
             { name: '사례 목록', url: '/cases' },
-            { name: caseData.title, url: `/cases/${slug}` }
+            { name: safeCaseData.title, url: `/cases/${slug}` }
           ]}
         />
         <div className={styles.caseDetailContent}>
@@ -140,44 +155,44 @@ async function CaseDetailContent({ slug }: { slug: string }) {
             <div className={styles.caseDetailHeader}>
               <div className={styles.caseDetailHeaderLeft}>
                 <div className={styles.caseDetailMeta}>
-                  <Badge variant={getCategoryVariant(caseData.category)} size="md">
-                    {caseData.category}
+                  <Badge variant={getCategoryVariant(safeCaseData.category)} size="md">
+                    {safeCaseData.category}
                   </Badge>
                   <div className={styles.caseDetailDate}>
                     <Icon name="calendar" size="sm" className={styles.caseDetailDateIcon} />
-                    {formatDate(caseData.createdAt)}
+                    {formatDate(safeCaseData.createdAt)}
                   </div>
-                  {caseData.region && (
+                  {safeCaseData.region && (
                     <div className={styles.caseDetailRegionMeta}>
                       <Icon name="map-pin" size="sm" className={styles.caseDetailRegionIcon} />
-                      {caseData.region}
+                      {safeCaseData.region}
                     </div>
                   )}
                 </div>
                 <h1 className={styles.caseDetailTitle}>
-                  {caseData.title}
+                  {safeCaseData.title}
                 </h1>
               </div>
               <div className={styles.caseDetailHeaderRight}>
-                {caseData.amount && (
+                {safeCaseData.amount && (
                   <div className={styles.caseDetailAmountMeta}>
                     <Icon name="trending-up" size="sm" className={styles.caseDetailAmountIcon} />
                     <span className={styles.caseDetailAmountLabel}>피해 금액:</span>
                     <span className={styles.caseDetailAmountValue}>
-                      {formatAmount(caseData.amount)}
+                      {formatAmount(safeCaseData.amount)}
                     </span>
                   </div>
                 )}
-                <LikeButton caseId={caseData.id} />
+                <LikeButton caseId={safeCaseData.id} />
               </div>
             </div>
 
             {/* 사례 내용 */}
             <div className={styles.caseDetailContentSection}>
               <h3 className={styles.caseDetailContentTitle}>사례 상세 내용</h3>
-              <div className={styles.caseDetailContentText}>
-                {caseData.content}
-              </div>
+                      <div className={styles.caseDetailContentText}>
+                        {safeCaseData.content}
+                      </div>
             </div>
 
             {/* Key Takeaway 박스 */}
@@ -217,13 +232,13 @@ async function CaseDetailContent({ slug }: { slug: string }) {
             </div>
 
             {/* 예방 팁 */}
-            {caseData.tip && (
+            {safeCaseData.tip && (
               <div className={styles.caseDetailTip}>
                 <div className={styles.caseDetailTipContent}>
                   <div>
                     <h3 className={styles.caseDetailTipTitle}>예방 팁</h3>
                     <div className={styles.caseDetailTipText}>
-                      {caseData.tip}
+                      {safeCaseData.tip}
                     </div>
                   </div>
                 </div>
@@ -235,15 +250,15 @@ async function CaseDetailContent({ slug }: { slug: string }) {
               <div className={styles.caseDetailStatsLeft}>
                 <div className={styles.caseDetailStatItem}>
                   <Icon name="users" size="sm" className={styles.caseDetailStatIcon} />
-                  <span>{caseData._count.likes}명이 공감</span>
+                  <span>{safeCaseData._count.likes}명이 공감</span>
                 </div>
                 <div className={styles.caseDetailStatItem}>
                   <Icon name="message-circle" size="sm" color="primary" className={styles.caseDetailStatIcon} />
-                  <span>{caseData._count.comments}개의 댓글</span>
+                  <span>{safeCaseData._count.comments}개의 댓글</span>
                 </div>
                 <div className={styles.caseDetailStatsRight}>
                   <span className={styles.caseDetailViewCount}>
-                    조회수: {Math.floor(123 + (caseData.id.length * 47) % 1000)}회
+                    조회수: {Math.floor(123 + (safeCaseData.id.length * 47) % 1000)}회
                   </span>
                 </div>
               </div>
@@ -252,11 +267,11 @@ async function CaseDetailContent({ slug }: { slug: string }) {
         </Card>
 
         {/* 유사 사례 섹션 */}
-        <RelatedCasesSection caseId={caseData.id} />
+        <RelatedCasesSection caseId={safeCaseData.id} />
 
         {/* 댓글 섹션 */}
-        <CommentForm caseId={caseData.id} />
-        <CommentsList caseId={caseData.id} />
+        <CommentForm caseId={safeCaseData.id} />
+        <CommentsList caseId={safeCaseData.id} />
         </div>
       </>
     )
