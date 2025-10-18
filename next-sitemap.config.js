@@ -8,8 +8,8 @@ module.exports = {
   exclude: ['/404', '/_error', '/api/*', '/statistics'],
   robotsTxtOptions: {
     policies: [
-      { 
-        userAgent: '*', 
+      {
+        userAgent: '*',
         allow: '/',
         disallow: ['/statistics', '/api/', '/admin/', '/_next/', '/404', '/500']
       }
@@ -26,7 +26,7 @@ module.exports = {
 
       const { PrismaClient } = await import('@prisma/client')
       const prisma = new PrismaClient()
-      
+
       const cases = await prisma.case.findMany({
         select: {
           slug: true,
@@ -38,6 +38,8 @@ module.exports = {
       })
 
       await prisma.$disconnect()
+
+      console.log(`사이트맵에 ${cases.length}개의 사례 페이지를 추가합니다.`)
 
       return cases.map((caseItem) => ({
         loc: `/cases/${caseItem.slug}`,

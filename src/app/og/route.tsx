@@ -20,21 +20,21 @@ export async function GET() {
         <div style={{ fontSize: 120, marginBottom: 20 }}>
           🛡️
         </div>
-        
+
         {/* 메인 텍스트 */}
-        <div style={{ 
-          fontSize: 72, 
-          fontWeight: 'bold', 
+        <div style={{
+          fontSize: 72,
+          fontWeight: 'bold',
           marginBottom: 20,
           textAlign: 'center',
           lineHeight: 1.2
         }}>
           피싱 방지 센터
         </div>
-        
+
         {/* 서브 텍스트 */}
-        <div style={{ 
-          fontSize: 32, 
+        <div style={{
+          fontSize: 32,
           opacity: 0.9,
           textAlign: 'center',
           maxWidth: '80%',
@@ -42,7 +42,7 @@ export async function GET() {
         }}>
           안전한 디지털 환경을 만들어갑니다
         </div>
-        
+
         {/* 하단 로고 영역 */}
         <div style={{
           position: 'absolute',

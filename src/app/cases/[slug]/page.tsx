@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: CaseDetailPageProps): Promise
   try {
     // 서버 컴포넌트에서 직접 Prisma 호출 (API 호출 대신)
     const { prisma } = await import('@/lib/prisma')
-    
+
     // 다중 디코딩 처리
     let decodedSlug = slug
     try {
@@ -66,7 +66,7 @@ export async function generateMetadata({ params }: CaseDetailPageProps): Promise
     } catch (decodeError) {
       decodedSlug = slug
     }
-    
+
     const caseData = await prisma.case.findUnique({
       where: {
         slug: decodedSlug
@@ -147,7 +147,7 @@ async function CaseDetailContent({ slug }: { slug: string }) {
 
     // 서버 컴포넌트에서 직접 Prisma 호출 (API 호출 대신)
     const { prisma } = await import('@/lib/prisma')
-    
+
     const caseData = await prisma.case.findUnique({
       where: {
         slug: decodedSlug

@@ -1,5 +1,5 @@
-import { ImageResponse } from 'next/og'
 import { prisma } from '@/lib/prisma'
+import { ImageResponse } from 'next/og'
 
 // 카테고리별 색상 매핑
 const categoryColors = {
@@ -41,7 +41,7 @@ export async function GET(
 ) {
   try {
     const { slug } = await params
-    
+
     // 다중 디코딩 처리
     let decodedSlug = slug
     try {
@@ -117,11 +117,11 @@ export async function GET(
           <div style={{ fontSize: 80, marginBottom: 20 }}>
             {categoryStyle.icon}
           </div>
-          
+
           {/* 사례 제목 */}
-          <div style={{ 
-            fontSize: 48, 
-            fontWeight: 'bold', 
+          <div style={{
+            fontSize: 48,
+            fontWeight: 'bold',
             marginBottom: 20,
             textAlign: 'center',
             lineHeight: 1.2,
@@ -129,17 +129,17 @@ export async function GET(
           }}>
             {caseData.title}
           </div>
-          
+
           {/* 카테고리 및 피해 금액 */}
-          <div style={{ 
-            fontSize: 24, 
+          <div style={{
+            fontSize: 24,
             opacity: 0.9,
             textAlign: 'center',
             marginBottom: 20
           }}>
             {caseData.category} {formatAmount(caseData.amount)}
           </div>
-          
+
           {/* 하단 브랜딩 */}
           <div style={{
             position: 'absolute',
@@ -159,7 +159,7 @@ export async function GET(
     )
   } catch (error) {
     console.error('OG 이미지 생성 오류:', error)
-    
+
     // 에러 시 기본 이미지 반환
     return new ImageResponse(
       (
